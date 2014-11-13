@@ -37,7 +37,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Digital Dialogues : Recent Changes</title>
+        <title>Swarm TV : Recent Changes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 		<style type="text/css">td img {display: block;}</style>
@@ -71,7 +71,7 @@
 	</div>
 		
 	<div>
-		<div id="recentChangesText"><strong>RSS feed: http://digitaldialogues.org/index.php/feed?group=<?php echo $group; ?></strong><br /><br /><?php echo $changesList; ?></div>
+		<div id="recentChangesText"><strong>RSS feed: http://swarmtv.net/index.php/feed?group=<?php echo $group; ?></strong><br /><br /><?php echo $changesList; ?></div>
 	</div>
 
         <script src="<?php echo base_url(); ?>js/plugins.js"></script>

@@ -15,7 +15,7 @@ class RecentChanges extends CI_Controller {
 		$data['group'] = $this->input->get('group');
 		$feedUrl = "http://swarmtv.net/index.php/feed?group=" . $data['group'];
 		$this->simplepie->set_feed_url($feedUrl);
-		$this->simplepie->set_cache_location('/var/public_html/rss/cache');
+		$this->simplepie->set_cache_location(APPPATH.'cache/rss');
 		$this->simplepie->set_cache_duration(0);
 		$this->simplepie->init();
 		$this->simplepie->handle_content_type();
