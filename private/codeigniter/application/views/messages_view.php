@@ -6,5 +6,5 @@
 </div>
 
 <div>
-	<div id="messages"><?php echo $messagesList; ?></div>
+	<div id="recentChangesText"><?php echo $messagesList; ?></div>
 </div>

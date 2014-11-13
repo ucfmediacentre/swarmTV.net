@@ -1,4 +1,4 @@
-<!-- replaces old Page View look (page_view original.php) /-->
+
 <div id="background">
   <div id="page_title_wrapper">
 	<h1 id="page_title"> <span style="color:gray"><?php echo urldecode($page_info->group) . " : </span>" . $page_info->title; ?> </h1>	
@@ -22,7 +22,7 @@
 	  <input type="submit" value="Search">
 	</form>
   </div>
-  <div id="editButtons">
+<div id="editButtons">
 	<p>Add:
 	<a href="<?php echo base_url(); ?>index.php/iframe/create/newText/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Text</a>&nbsp;|&nbsp;
 	<a href="<?php echo base_url(); ?>index.php/iframe/create/newImage/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Image</a>&nbsp;|&nbsp;

@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -9,6 +11,7 @@
         <title>Swarm TV: <?php echo urldecode($title); ?> </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
+		<style type="text/css">td img {display: block;}</style>
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
