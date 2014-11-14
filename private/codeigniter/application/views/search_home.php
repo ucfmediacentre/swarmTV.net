@@ -11,7 +11,6 @@
         <title>Swarm TV: Recent Changes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-		<style type="text/css">td img {display: block;}</style>
 
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/normalize.css">
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
