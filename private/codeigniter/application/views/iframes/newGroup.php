@@ -13,7 +13,7 @@
 		<input type="hidden" name="current_page" value="<?php echo $pageTitle; ?>"/>
 		<input type="hidden" name="current_page_id" value="<?php echo $pageId; ?>"/>
 		<input type="hidden" name="current_group" value="<?php echo $group; ?>"/>
-		<input type="hidden" name="userId" value="<?php echo $userId; ?>"/>
+		<input type="hidden" name="userId" value="<?php echo $user_id; ?>"/>
 		
 		<div id="loadingPrompt">Loading...</div>
 	</form>
