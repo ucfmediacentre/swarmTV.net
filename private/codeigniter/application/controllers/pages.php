@@ -43,6 +43,7 @@ class Pages extends CI_Controller {
 	  $this->session->set_userdata('openness', NULL);
 	  if ($this->session->userdata('logged_in') != true){	
 		$this->session->set_userdata('username', 'Anonymous');
+		$this->session->set_userdata('user_id', '1'); // id of Anonymous
 	  }
 	  if ($group_details->openness == 'public'){	
 		  $this->session->set_userdata('openness', 'public');	
