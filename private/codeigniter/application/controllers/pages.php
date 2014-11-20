@@ -41,7 +41,7 @@ class Pages extends CI_Controller {
 	  // check security (logged in) and save state of openness to the session
 	  $this->load->library('session');
 	  $this->session->set_userdata('openness', NULL);
-	  if ($this->session->userdata('logged_in') != true){	
+	  if (!isset($this->session->userdata('logged_in')) || $this->session->userdata('logged_in') != true) {	
 		$this->session->set_userdata('username', 'Anonymous');
 		$this->session->set_userdata('user_id', '1'); // id of Anonymous
 	  }
@@ -65,7 +65,6 @@ class Pages extends CI_Controller {
 			  
 			  $data['group'] = urldecode($group);
 			  $data['title'] = urldecode($page_title);
-			  
 			  $this->load->view('header', $data);
 			  $this->load->view('pages_view/entry_request', $data);
 			  $this->load->view('footer');
