@@ -11,7 +11,6 @@
         <title>Swarm TV: <?php echo urldecode($title); ?> </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-		<style type="text/css">td img {display: block;}</style>
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 

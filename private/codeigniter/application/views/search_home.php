@@ -65,7 +65,6 @@
 		  font-weight:bold;text-decoration:none;
 		}
         </style>
-		<style type="text/css">td img {display: block;}</style>
     </head>
     
     <body>
@@ -386,7 +385,7 @@
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		  
-			ga('create', 'UA-47930876-1', 'digitaldialogues.org');
+			ga('create', 'UA-47930876-1', 'swarmtv.net');
 			ga('send', 'pageview');
 		  
 		</script>

@@ -40,7 +40,6 @@
         <title>Swarm TV : Recent Changes</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-		<style type="text/css">td img {display: block;}</style>
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -92,7 +91,7 @@
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		  
-			ga('create', 'UA-47930876-1', 'digitaldialogues.org');
+			ga('create', 'UA-47930876-1', 'swarmtv.net');
 			ga('send', 'pageview');
 		  
 		</script>

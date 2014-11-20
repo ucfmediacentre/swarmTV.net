@@ -44,10 +44,10 @@ class Register extends CI_Controller
 			$user_vericode=$this->Users_model->new_user_vericode($username, $email, $password);
 
 			$this->load->library('email');
-			$this->email->from('admin@digitaldialogues.org', 'Admin');
+			$this->email->from('admin@swarmtv.net 'Admin');
 			$this->email->to($email);
-			$this->email->subject('Digital Dialogues verification link');
-			$message = '<html><body>In order to verify your registration for Digital Dialogues, please click on the following link: <a href="http://www.digitaldialogues.org/index.php/register/confirmation/' . $user_vericode . '">digitalDialogues.org/' . $user_vericode . '</a></body></html>';
+			$this->email->subject('Swarm TV verification link');
+			$message = '<html><body>In order to verify your registration for Swarm TV, please click on the following link: <a href="http://www.swarmtv.net/index.php/register/confirmation/' . $user_vericode . '">swarmtv.net/' . $user_vericode . '</a></body></html>';
 			$this->email->message($message);
 			$this->email->send();
 

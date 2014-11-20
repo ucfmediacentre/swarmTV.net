@@ -23,10 +23,10 @@ $record = mysql_fetch_assoc($result);
 //set string variables for ffmpeg string
 $filename = $record['filename'];
 $filename = substr($filename, 0, -4);
-//$videoDirectory = "/Users/media/Sites/digitaldialogues/www/assets/video/";
-$videoDirectory = "/var/www/assets/video/";
-//$videopostersDirectory = "/Users/media/Sites/digitaldialogues/www/assets/videoposters/";
-$videopostersDirectory = "/var/www/assets/videoposters/";
+//$videoDirectory = "/Users/media/Sites/swarmtv.net/public_html/assets/video/";
+$videoDirectory = "/home/swarmtvn/public_html/assets/video/";
+//$videopostersDirectory = "/Users/media/Sites/swarmtv.net/public_html/assets/videoposters/";
+$videopostersDirectory = "/home/swarmtvn/public_html/assets/videoposters/";
 
 //create Terminal string for ffmpeg and execute it
 $makeFrameString = "/usr/bin/ffmpeg -i " . $videoDirectory . $filename . ".mp4";

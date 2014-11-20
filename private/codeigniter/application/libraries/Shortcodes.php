@@ -2,8 +2,8 @@
 /**
  * Shortcodes class
  *
- * @package	Digital Dialogues
- * @subpackage	Libraries
+ * @package	Swarm TV
+ * * @subpackage	Libraries
  * @category	shortcodes
  * @author	Alcwyn Parker
  * @link	http://www.alcwynparker.co.uk
@@ -155,7 +155,7 @@ class Shortcodes{
 /**
  * Shortcode class
  *
- * @package	Digital Dialogues
+ * @package	Swarm TV
  * @subpackage	Libraries
  * @category	shortcodes
  * @author	Alcwyn Parker
