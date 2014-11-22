@@ -43,12 +43,10 @@ class Clip extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
 		
-		echo"this it !!!";
-		
 		$videoList = $this->Elements_model->getAllVideos($pageId);
 		
 		while ($record = mysql_fetch_assoc($videoList)) {
-			//echo $record['filename']."<br>";
+			echo $record['filename']."<br>";
 			$in = round($record['in']);
 			$out = round($record['out']);
 			$json[]=array("src" => $record['filename'], "in" => $in, "out" => $out);
