@@ -70,10 +70,9 @@ class Elements_model extends CI_Model {
     // gets all of the elements for a specific page
     function getAllVideos($pageId)
     {
-        $this->load->database();
-    	$query = $this->db->get('elements');
     	$query = $this->db->where('pages_id', $pageId);
     	$query = $this->db->where('type', 'video');
+    	$query = $this->db->get('elements');
     	
     	// loop through each element and update the description
     	$elements = $query->result_array();
