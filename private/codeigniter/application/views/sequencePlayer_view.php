@@ -10,7 +10,7 @@ body,td,th {
 }</style>
 <script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min.js"></script>
 <script type="application/javascript" src="../../../../../js/popcorn.js"></script>
-<script type="application/javascript" src="../../../../../js/videoExtension.js"></script>
+<script type="application/javascript" src="../../../../js/videoExtension.js"></script>
 </head>
 
 <body>
