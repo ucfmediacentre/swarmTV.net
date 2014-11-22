@@ -54,6 +54,8 @@ class Clip extends CI_Controller {
 		
 		$myDirtyString=json_encode($json);
 		$jsonSequence = str_replace("\/","/",$myDirtyString);
+		echo "Ok to here!<br>";
+		echo $jsonSequence;
 		$data['jsonSequence']=$jsonSequence;
 		
 		$this->load->view('sequencePlayer_view', $data);
