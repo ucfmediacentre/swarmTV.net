@@ -48,7 +48,6 @@ class Clip extends CI_Controller {
 		
 		$videoList = $this->Elements_model->getAllVideos($pageId);
 		
-		
 		echo "2. Ok to here!<br>";
 		
 		while ($record = mysql_fetch_assoc($videoList)) {

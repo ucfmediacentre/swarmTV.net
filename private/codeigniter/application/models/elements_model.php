@@ -75,7 +75,7 @@ class Elements_model extends CI_Model {
     	$query = $this->db->get('elements');
     	
     	// loop through each element and update the description
-    	$elements = $query->result_array();
+    	$elements = mysql_query($query);
     	return $elements;
     }
     
