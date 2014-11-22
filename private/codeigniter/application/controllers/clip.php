@@ -43,7 +43,13 @@ class Clip extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
 		
+		
+		echo "1. Ok to here!<br>";
+		
 		$videoList = $this->Elements_model->getAllVideos($pageId);
+		
+		
+		echo "2. Ok to here!<br>";
 		
 		while ($record = mysql_fetch_assoc($videoList)) {
 			echo $record['filename']."<br>";
@@ -54,7 +60,7 @@ class Clip extends CI_Controller {
 		
 		$myDirtyString=json_encode($json);
 		$jsonSequence = str_replace("\/","/",$myDirtyString);
-		echo "Ok to here!<br>";
+		echo "3. Ok to here!<br>";
 		echo $jsonSequence;
 		$data['jsonSequence']=$jsonSequence;
 		
