@@ -37,11 +37,13 @@ class Clip extends CI_Controller {
 	}
 	
 	
-	// plays a video clip with a specific id according to its stored timeline details
+	// plays all video clips on a page
 	public function playAllVideos($pageId)
 	{		
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
+		
+		echo"this it !!!";
 		
 		$videoList = $this->Elements_model->getAllVideos($pageId);
 		
