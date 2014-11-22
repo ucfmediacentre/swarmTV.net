@@ -30,7 +30,7 @@ $(document).ready(function() {
 		//var numOfParas = parameters.length;
 		//var dWidth  = parseInt(parameters[numOfParas-2]);
 		//var dHeight     =  parseInt(parameters[numOfParas-1]);  
-        $(this).fancybox({  
+		$(this).fancybox({  
 			'width':640,  
 			'height':480, 
 			'padding':0,
@@ -42,7 +42,7 @@ $(document).ready(function() {
 			'type'          : 'iframe',  
 			'onClosed'	:	function() {
 			  window.location.href=window.location.href;
-			  restoreZIndex();
+			  //restoreZIndex();
 			}  
 		});  
 	});  
