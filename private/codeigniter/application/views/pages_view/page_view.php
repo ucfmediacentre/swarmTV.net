@@ -28,6 +28,7 @@
 	<a href="<?php echo base_url(); ?>index.php/iframe/create/newImage/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Image</a>&nbsp;|&nbsp;
 	<a href="<?php echo base_url(); ?>index.php/iframe/create/newAudio/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Audio</a>&nbsp;|&nbsp;
 	<a href="<?php echo base_url(); ?>index.php/iframe/create/newVideo/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Video</a>&nbsp;|&nbsp;
+	<a href="<?php echo base_url(); ?>index.php/clip/play/2278/506/417" class="iframe">Play All Videos</a>&nbsp;|&nbsp;
 	<a href="<?php echo base_url(); ?>index.php/clip/playAllVideos/<?php echo $page_info->id ?>" class="sequenceLink">Play All Videos</a>&nbsp;|&nbsp;
 	<a href="<?php echo base_url(); ?>index.php/iframe/create/newPage/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Page</a>&nbsp;|&nbsp;
 	<a href="<?php echo base_url(); ?>index.php/iframe/create/newGroup/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Group</a>
