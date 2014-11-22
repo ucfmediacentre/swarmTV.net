@@ -49,6 +49,7 @@ class Clip extends CI_Controller {
 		$videoList = $this->Elements_model->getAllVideos($pageId);
 		
 		echo "2. Ok to here!<br>";
+		echo $videoList."<br>";
 		
 		foreach ($videoList->result() as $row)
 			{
