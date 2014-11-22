@@ -41,7 +41,7 @@ class Elements_model extends CI_Model {
     // gets all of the elements for a specific page
     function get_all_elements($page_id)
     {
-		$this->load->model('Pages_model');
+	$this->load->model('Pages_model');
     	$query = $this->db->get_where('elements', array('pages_id' => $page_id));
     	
     	// loop through each element and update the description
@@ -49,21 +49,34 @@ class Elements_model extends CI_Model {
     	
     	for ($i = 0; $i < sizeof($elements); $i++)
     	{	
-			$contents = $elements[$i]['contents'];
-            $pages_id = $elements[$i]['pages_id'];
-            $pages_title = $this->Pages_model->get_title($pages_id);
-            $elements_id = $elements[$i]['id'];
-            $dbContents = $elements[$i]['contents'];
+		$contents = $elements[$i]['contents'];
+		$pages_id = $elements[$i]['pages_id'];
+		$pages_title = $this->Pages_model->get_title($pages_id);
+		$elements_id = $elements[$i]['id'];
+		$dbContents = $elements[$i]['contents'];
 
-			// piece the contents back together with the html links embedded
-            $processed_contents = $this->Links_model->process_codes($contents, "forWeb", $pages_title, $elements_id);
+		// piece the contents back together with the html links embedded
+		$processed_contents = $this->Links_model->process_codes($contents, "forWeb", $pages_title, $elements_id);
         
-            $editable_contents = $this->Links_model->process_codes($dbContents, "forEditing", $pages_title, $elements_id);
+		$editable_contents = $this->Links_model->process_codes($dbContents, "forEditing", $pages_title, $elements_id);
             
-			//update the description
-			$elements[$i]['contents'] = $processed_contents;
-            $elements[$i]['editableContents'] = $editable_contents;
+		//update the description
+		$elements[$i]['contents'] = $processed_contents;
+		$elements[$i]['editableContents'] = $editable_contents;
     	}
+    	return $elements;
+    }
+    
+    // gets all of the elements for a specific page
+    function getAllVideos($pageId)
+    {
+	$this->load->model('Pages_model');
+    	$query = $this->db->get('elements');
+    	$query = $this->db->where('pages_id', $pageId);
+    	$query = $this->db->where('type', 'video');
+    	
+    	// loop through each element and update the description
+    	$elements = $query->result_array();
     	return $elements;
     }
     
