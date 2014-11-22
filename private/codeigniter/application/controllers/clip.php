@@ -52,9 +52,9 @@ class Clip extends CI_Controller {
 		
 		foreach ($videoList->result() as $row)
 			{
-			   $in = round($row->in);
-			   $out = round($row->out);
-			   $json[]=array("src" => $row['filename'], "in" => $in, "out" => $out);
+				$timelineString = ($row->timeline);
+				$timelineArray=json_decode($timelineString);
+				$json[]=array("src" => ($row->filename), "in" => ($timelineArray['in']), "out" => ($timelineArray['out']));
 			}
 		
 		$myDirtyString=json_encode($json);
