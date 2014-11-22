@@ -25,14 +25,14 @@ $(document).ready(function() {
 	$('a.sequenceLink').addClass('iframe');
 
 	$('a.sequenceLink').each(function(){
-		var parameters = $(this).attr('href').split("/");
+		//var parameters = $(this).attr('href').split("/");
 		//codeigniter parameters for width and height
-		var numOfParas = parameters.length;
-        var dWidth  = parseInt(parameters[numOfParas-2]);
-		var dHeight     =  parseInt(parameters[numOfParas-1]);  
+		//var numOfParas = parameters.length;
+		//var dWidth  = parseInt(parameters[numOfParas-2]);
+		//var dHeight     =  parseInt(parameters[numOfParas-1]);  
         $(this).fancybox({  
-			'width':dWidth,  
-			'height':dHeight, 
+			'width':640,  
+			'height':480, 
 			'padding':0,
 			'autoScale'         : false,  
 			'transitionIn'		: 'fade',
