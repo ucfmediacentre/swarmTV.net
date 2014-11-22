@@ -50,12 +50,12 @@ class Clip extends CI_Controller {
 		
 		echo "2. Ok to here!<br>";
 		
-		while ($record = mysql_fetch_assoc($videoList)) {
-			echo $record['filename']."<br>";
-			$in = round($record['in']);
-			$out = round($record['out']);
-			$json[]=array("src" => $record['filename'], "in" => $in, "out" => $out);
-		}
+		foreach ($videoList->result() as $row)
+			{
+			   $in = round($row->in);
+			   $out = round($row->out);
+			   $json[]=array("src" => $record['filename'], "in" => $in, "out" => $out);
+			}
 		
 		$myDirtyString=json_encode($json);
 		$jsonSequence = str_replace("\/","/",$myDirtyString);

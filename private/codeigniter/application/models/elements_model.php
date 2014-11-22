@@ -72,11 +72,7 @@ class Elements_model extends CI_Model {
     {
     	$query = $this->db->where('pages_id', $pageId);
     	$query = $this->db->where('type', 'video');
-    	$query = $this->db->get('elements');
-    	
-    	// loop through each element and update the description
-    	$elements = mysql_query($query);
-    	return $elements;
+    	return $this->db->get('elements')->result();
     }
     
     // gets a specific element by its id
