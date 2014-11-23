@@ -43,12 +43,7 @@ class Clip extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
 		
-		
-		echo "1. Ok to here!<br>";
-		
 		$videoList = $this->Elements_model->getAllVideos($pageId); //$videoList is an array
-		
-		echo "2. Ok to here!<br>";
 		
 		foreach ($videoList as $row)
 			{
@@ -68,8 +63,6 @@ class Clip extends CI_Controller {
 		
 		$myDirtyString=json_encode($json);
 		$jsonSequence = str_replace("\/","/",$myDirtyString);
-		echo "3. Ok to here!<br>";
-		echo $jsonSequence;
 		$data['jsonSequence']=$jsonSequence;
 		
 		$this->load->view('sequencePlayer_view', $data);

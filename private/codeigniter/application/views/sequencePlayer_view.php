@@ -18,15 +18,15 @@ body,td,th {
 <div id="container-id"></div>
 <script type="text/javascript">
 
-var videoInfo = <?php echo $jsonSequence ?>;
-//alert(videoInfo[0].src);
+var videoInfo = JSON.parse(<?php echo $jsonSequence ?>);
+alert(videoInfo[0].src);
 var len=videoInfo.length;
-//alert(len);
+alert(len);
 for(var i=0; i<len; i++) {
 	var value = videoInfo[i].src;
-	//alert(value);
+	alert(value);
 	videoInfo[i].src = "assets/videos/"+value+videoExtension;
-	//alert(videoInfo[i].src);
+	alert(videoInfo[i].src);
 }
 
 // create our sequence
