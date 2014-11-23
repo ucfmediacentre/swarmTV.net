@@ -54,11 +54,9 @@ class Clip extends CI_Controller {
 			{
 				echo "$ row<br>";
 				var_dump($row);
-				/*echo "['timeline']<br>";
-				var_dump($row["timeline"]);
-				echo "$row->timeline<br>";
+				echo "$ row->timeline<br>";
 				var_dump($row->timeline);
-				echo "$row->timeline<br>";
+				/*echo "$row->timeline<br>";
 				$timelineJSON = $row->timeline;
 				$timeline = json_decode($timelineJSON);
 				if ($timeline !== NULL){
