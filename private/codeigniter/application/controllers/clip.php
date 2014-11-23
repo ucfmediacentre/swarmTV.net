@@ -52,7 +52,7 @@ class Clip extends CI_Controller {
 		
 		foreach ($videoList as $row)
 			{
-				echo "$row<br>";
+				echo "$ row<br>";
 				var_dump($row);
 				/*echo "['timeline']<br>";
 				var_dump($row["timeline"]);
