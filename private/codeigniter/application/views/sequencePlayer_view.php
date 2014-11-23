@@ -19,14 +19,14 @@ body,td,th {
 <script type="text/javascript">
 
 var videoInfo = JSON.parse('<?php echo $jsonSequence ?>');
-alert(videoInfo[0].src);
+//alert(videoInfo[0].src);
 var len=videoInfo.length;
-alert(len);
+//alert(len);
 for(var i=0; i<len; i++) {
 	var value = videoInfo[i].src;
-	alert(value);
-	videoInfo[i].src = "assets/videos/"+value+videoExtension;
-	alert(videoInfo[i].src);
+	//alert(value);
+	videoInfo[i].src = "../../../assets/videos/"+value+videoExtension;
+	//alert(videoInfo[i].src);
 }
 
 // create our sequence

@@ -58,7 +58,7 @@ class Clip extends CI_Controller {
 					$data['out'] = "100";
 					$data['duration'] = "100";
 				}
-				$json[]=array("src" => ($row->filename), "in" => ($data['in']), "out" => ($data['out']));
+				$json[]=array("src" => substr($row->filename, 0 , -4), "in" => ($data['in']), "out" => ($data['out']));
 			}
 		
 		$myDirtyString=json_encode($json);
