@@ -54,7 +54,7 @@ class Clip extends CI_Controller {
 			{
 				echo "$row<br>";
 				var_dump($row);
-				echo "['timeline']<br>";
+				/*echo "['timeline']<br>";
 				var_dump($row["timeline"]);
 				echo "$row->timeline<br>";
 				var_dump($row->timeline);
@@ -70,7 +70,7 @@ class Clip extends CI_Controller {
 					$data['out'] = "100";
 					$data['duration'] = "100";
 				}
-				var_dump($data);
+				var_dump($data);*/
 				//$timelineArray=json_decode($timelineString);
 				//$json[]=array("src" => ($row->filename), "in" => ($timelineArray['in']), "out" => ($timelineArray['out']));
 			}
