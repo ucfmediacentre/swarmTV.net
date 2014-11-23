@@ -18,7 +18,7 @@ body,td,th {
 <div id="container-id"></div>
 <script type="text/javascript">
 
-var videoInfo = JSON.parse(<?php echo $jsonSequence ?>);
+var videoInfo = JSON.parse('<?php echo $jsonSequence ?>');
 alert(videoInfo[0].src);
 var len=videoInfo.length;
 alert(len);
