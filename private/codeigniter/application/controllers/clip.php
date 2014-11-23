@@ -63,9 +63,7 @@ class Clip extends CI_Controller {
 					$data['out'] = "100";
 					$data['duration'] = "100";
 				}
-				var_dump($data);
-				//$timelineArray=json_decode($timelineString);
-				//$json[]=array("src" => ($row->filename), "in" => ($timelineArray['in']), "out" => ($timelineArray['out']));
+				$json[]=array("src" => ($row->filename), "in" => ($timelineArray['in']), "out" => ($timelineArray['out']));
 			}
 		
 		$myDirtyString=json_encode($json);
