@@ -25,7 +25,7 @@ var len=videoInfo.length;
 for(var i=0; i<len; i++) {
 	var value = videoInfo[i].src;
 	//alert(value);
-	videoInfo[i].src = "../../../assets/videos/"+value+videoExtension;
+	videoInfo[i].src = "../../../assets/video/"+value+videoExtension;
 	//alert(videoInfo[i].src);
 }
 
