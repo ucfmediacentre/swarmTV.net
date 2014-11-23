@@ -47,14 +47,32 @@ class Clip extends CI_Controller {
 		echo "1. Ok to here!<br>";
 		
 		$videoList = $this->Elements_model->getAllVideos($pageId); //$videoList is an array
-		var_dump($videoList);
+		
 		echo "2. Ok to here!<br>";
 		
 		foreach ($videoList->result() as $row)
 			{
-				$timelineString = ($row->timeline);
-				$timelineArray=json_decode($timelineString);
-				$json[]=array("src" => ($row->filename), "in" => ($timelineArray['in']), "out" => ($timelineArray['out']));
+				echo "$row<br>";
+				var_dump($row);
+				echo "['timeline']<br>";
+				var_dump($row["timeline"]);
+				echo "$row->timeline<br>";
+				var_dump($row->timeline);
+				echo "$row->timeline<br>";
+				$timelineJSON = $row->timeline;
+				$timeline = json_decode($timelineJSON);
+				if ($timeline !== NULL){
+					$data['in'] = $timeline->in;
+					$data['out'] = $timeline->out;
+					$data['duration'] = $timeline->duration;
+				} else {
+					$data['in'] = 0;
+					$data['out'] = "100";
+					$data['duration'] = "100";
+				}
+				var_dump($data);
+				//$timelineArray=json_decode($timelineString);
+				//$json[]=array("src" => ($row->filename), "in" => ($timelineArray['in']), "out" => ($timelineArray['out']));
 			}
 		
 		$myDirtyString=json_encode($json);
