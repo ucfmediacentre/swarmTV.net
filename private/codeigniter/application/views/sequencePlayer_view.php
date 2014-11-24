@@ -29,7 +29,7 @@ for(var i=0; i<len; i++) {
 	//alert(videoInfo[i].src);
 }
 
-alert(videoInfo);
+alert(object.toSource())
 
 // create our sequence
 var sequence = Popcorn.sequence("container-id",videoInfo);
