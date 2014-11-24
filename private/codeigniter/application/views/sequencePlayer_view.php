@@ -27,7 +27,7 @@ for(var i=0; i<len; i++) {
 	//alert(value);
 	videoInfo[i].src = "../../../assets/video/"+value+videoExtension;
 	videoInfo[i].in = Math.round(videoInfo[i].in);
-	videoInfo[i].out = Math.round(videoInfo[i].out);
+	videoInfo[i].out = Math.round(videoInfo[i].out-0.5);
 	//alert(videoInfo[i].src);
 }
 
