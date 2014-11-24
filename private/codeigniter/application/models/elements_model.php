@@ -72,6 +72,8 @@ class Elements_model extends CI_Model {
     {
     	$query = $this->db->where('pages_id', $pageId);
     	$query = $this->db->where('type', 'video');
+	$this->db->order_by("x", "asc");
+	
     	return $this->db->get('elements')->result();
     }
     
