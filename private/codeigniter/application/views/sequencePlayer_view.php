@@ -29,7 +29,7 @@ for(var i=0; i<len; i++) {
 	//alert(videoInfo[i].src);
 }
 
-var_dump(videoInfo);
+alert(videoInfo);
 
 // create our sequence
 var sequence = Popcorn.sequence("container-id",videoInfo);
