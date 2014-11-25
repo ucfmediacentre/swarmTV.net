@@ -2,16 +2,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Sequence Player</title>
-<style type="text/css">
-body,td,th {
-	font-family: Geneva, Arial, Helvetica, sans-serif;
-	font-size: 10px;
-	color: #666;
-}
-element.style{
-	padding: 10px;
-}
-</style>
 <script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min.js"></script>
 <script type="application/javascript" src="../../../../../js/popcorn.js"></script>
 <script type="application/javascript" src="../../../../../js/videoExtension.js"></script>
