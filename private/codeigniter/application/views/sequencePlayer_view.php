@@ -16,7 +16,7 @@ body,td,th {
 
 <body>
 
-<div id="container-id"></div>
+<div id="container-id" style="padding: 10px;"></div>
 <script type="text/javascript">
 
 var videoInfo = JSON.parse('<?php echo $jsonSequence ?>');
