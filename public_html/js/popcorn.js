@@ -3256,7 +3256,7 @@
         _count = options.numberofimages || 4,
         _height = options.height || "50px",
         _width = options.width || "50px",
-        _padding = options.padding || "5px",
+        _padding = options.padding || "0px",
         _border = options.border || "0px";
 
     // create a new div this way anything in the target div is left intact
