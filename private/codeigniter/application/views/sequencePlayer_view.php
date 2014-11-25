@@ -7,7 +7,7 @@ body,td,th {
 	font-family: Geneva, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #666;
-	padding: 10px;
+	padding: 0px;
 }</style>
 <script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min.js"></script>
 <script type="application/javascript" src="../../../../../js/popcorn.js"></script>
