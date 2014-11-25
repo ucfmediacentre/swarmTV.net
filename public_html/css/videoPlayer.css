@@ -34,7 +34,5 @@ a.videoLink:hover { border-color: #fff; }
 a.sequenceLink {font-family: Arial; font-size: 15px;}
 
 #container-id{
-	width: 640px;
-	float: left;
-	margin: 0 0 0 10px;
+	padding: 10px;
 }
