@@ -2,9 +2,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Sequence Player</title>
-<script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min0.js"></script>
+<script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min.js"></script>
 <script type="application/javascript" src="../../../../../js/popcorn.js"></script>
-<script type="application/javascript" src="../../../../../js/videoExtension.js"></script>
+<script type="application/javascript" src="../../../../../js/videoExtension0.js"></script>
 </head>
 
 <body>
