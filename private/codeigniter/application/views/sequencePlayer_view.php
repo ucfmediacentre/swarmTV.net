@@ -8,11 +8,6 @@ body,td,th {
 	font-size: 10px;
 	color: #666;
 }
-
-div{
-	
-	padding: 10px;
-}
 </style>
 <script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min.js"></script>
 <script type="application/javascript" src="../../../../../js/popcorn.js"></script>
