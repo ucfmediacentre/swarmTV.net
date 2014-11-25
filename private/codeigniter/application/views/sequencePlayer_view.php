@@ -8,6 +8,9 @@ body,td,th {
 	font-size: 10px;
 	color: #666;
 }
+element.style{
+	padding: 10px;
+}
 </style>
 <script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min.js"></script>
 <script type="application/javascript" src="../../../../../js/popcorn.js"></script>
@@ -16,7 +19,7 @@ body,td,th {
 
 <body>
 
-<div id="container-id" style="padding: 10px;"></div>
+<div id="container-id"></div>
 <script type="text/javascript">
 
 var videoInfo = JSON.parse('<?php echo $jsonSequence ?>');
