@@ -7,8 +7,13 @@ body,td,th {
 	font-family: Geneva, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #666;
-	margin-right: 15px;
-}</style>
+}
+
+div{
+	
+	padding: 10px;
+}
+</style>
 <script type="application/javascript" src="../../../../../js/vendor/jquery-1.8.3.min.js"></script>
 <script type="application/javascript" src="../../../../../js/popcorn.js"></script>
 <script type="application/javascript" src="../../../../../js/videoExtension.js"></script>
