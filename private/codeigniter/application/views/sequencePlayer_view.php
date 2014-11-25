@@ -25,6 +25,8 @@ for(var i=0; i<len; i++) {
 	//alert(videoInfo[i].src);
 }
 
+$(".fancybox-skin").css("padding","10px");
+
 // create our sequence
 var sequence = Popcorn.sequence("container-id",videoInfo);
 
