@@ -30,9 +30,7 @@ $(document).ready(function() {
 		//var numOfParas = parameters.length;
 		//var dWidth  = parseInt(parameters[numOfParas-2]);
 		//var dHeight     =  parseInt(parameters[numOfParas-1]);  
-		$(this).fancybox({  
-			'width':512,  
-			'height':288, 
+		$(this).fancybox({ 
 			'padding':0,
 			'autoScale'         : false,  
 			'transitionIn'		: 'fade',
