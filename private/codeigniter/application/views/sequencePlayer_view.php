@@ -28,8 +28,6 @@ for(var i=0; i<len; i++) {
 // create our sequence
 var sequence = Popcorn.sequence("container-id",videoInfo);
 
-$(".fancybox-skin").css("padding":"10px");
-
 // play popcorn
 sequence.play();
 

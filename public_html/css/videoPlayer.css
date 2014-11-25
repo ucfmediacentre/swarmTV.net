@@ -32,7 +32,3 @@ a.videoLink div.caption {
 a.videoLink:hover { border-color: #fff; }
 
 a.sequenceLink {font-family: Arial; font-size: 15px;}
-
-#container-id{
-	padding: 10px;
-}
