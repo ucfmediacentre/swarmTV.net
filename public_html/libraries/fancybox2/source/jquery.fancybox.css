@@ -27,6 +27,7 @@
 .fancybox-skin {
 	position: relative;
 	background: #f9f9f9;
+	padding: 10px;
 	color: #444;
 	text-shadow: none;
 	-webkit-border-radius: 4px;
