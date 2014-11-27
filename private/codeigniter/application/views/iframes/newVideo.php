@@ -1,4 +1,8 @@
 
+	<div class="video_gallery_container">
+	  <a class="videolink"></a>
+	</div>
+	
 	<form id="add_video_form" class="input_form" action="<?php echo base_url(); ?>index.php/elements/add" method="post" enctype="multipart/form-data">
 	  <h2>New Video</h2>
 	  <p>Maximum size: 100Mb<br />Formats: .mp4</p>

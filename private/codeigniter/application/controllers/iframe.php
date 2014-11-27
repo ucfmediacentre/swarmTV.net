@@ -12,6 +12,9 @@ class Iframe extends CI_Controller {
 	  $this->load->helper('url');
 	  $this->load->model('Users_model');
 	  
+	  //if a new video is required, go and get a list of all the videos in that group on the server
+	  
+	  
 	  $data['toolName'] = $toolName;
 	  $data['pageTitle'] = $pageTitle;
 	  $data['pageId'] = $pageId;
