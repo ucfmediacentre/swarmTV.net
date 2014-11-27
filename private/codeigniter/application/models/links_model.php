@@ -207,7 +207,7 @@ class Links_model extends CI_Model {
 												$this->shortcodes->replaceShortCode($i, '<div style="text-align:right">' . $link->getValue() . '</div>');
 												break;
 										case "playall":
-												$this->shortcodes->replaceShortCode($i, '<div style="text-align:right"><a href=' . base_url() . 'index.php/clip/playAllVideos/' . $page_id . '" class="sequenceLink">Play All Videos</a></div>');
+												$this->shortcodes->replaceShortCode($i, '<div style="text-align:right"><a href="' . base_url() . 'index.php/clip/playAllVideos/' . $page_id . '" class="sequenceLink">Play All Videos</a></div>');
 												break;
 										case "shortcode":
 												$this->shortcodes->replaceShortCode($i, '[['.$link->getValue().']]');
