@@ -19,6 +19,8 @@ class Iframe extends CI_Controller {
 	  $data['author'] = $this->Users_model->get_user($userId);
 	  $data['userId'] = $userId;
 		
+		
+	  $this->load->view('iframes/collectAssets', $data);
 	  $this->load->view('iframes/iframe_header', $data);
 	  $this->load->view('iframes/'.$toolName, $data);
 	}
