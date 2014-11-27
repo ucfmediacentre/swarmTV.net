@@ -9,7 +9,7 @@
 
 <body>
 
-<div id="container-id"></div>
+<div id="container-id" width="640px"></div>
 <script type="text/javascript">
 
 var videoInfo = JSON.parse('<?php echo $jsonSequence ?>');
