@@ -59,7 +59,7 @@ class Links_model extends CI_Model {
 	}
 	
 	// swaps the link Titles for link ids from the `links` table
-	function process_codes($string, $forWhat, $page_title, $element_id)
+	function process_codes($string, $forWhat, $page_id, $element_id)
 	{
 		//print_r($pages_title);
 		//echo "links_model.php<br />";
@@ -74,7 +74,7 @@ class Links_model extends CI_Model {
 		// compiles the common data string
 		$data = array(
 			'elementsId' => $element_id,
-			'pageTitle' => $page_title,
+			'pageTitle' => $this->Pages_model->get_title($pages_id),
 			'pageTitleGroup' => $page_group,
 			'linkTitleGroup' => $page_group
 		);
@@ -207,7 +207,7 @@ class Links_model extends CI_Model {
 												$this->shortcodes->replaceShortCode($i, '<div style="text-align:right">' . $link->getValue() . '</div>');
 												break;
 										case "playall":
-												$this->shortcodes->replaceShortCode($i, '<div style="text-align:right"><a href=' . base_url() . 'index.php/clip/playAllVideos/' . $page_title . '" class="sequenceLink">Play All Videos</a></div>');
+												$this->shortcodes->replaceShortCode($i, '<div style="text-align:right"><a href=' . base_url() . 'index.php/clip/playAllVideos/' . $pages_id . '" class="sequenceLink">Play All Videos</a></div>');
 												break;
 										case "shortcode":
 												$this->shortcodes->replaceShortCode($i, '[['.$link->getValue().']]');

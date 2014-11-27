@@ -51,14 +51,14 @@ class Elements_model extends CI_Model {
     	{	
 		$contents = $elements[$i]['contents'];
 		$pages_id = $elements[$i]['pages_id'];
-		$pages_title = $this->Pages_model->get_title($pages_id);
+		$pages_title = urlencode($this->Pages_model->get_title($pages_id));
 		$elements_id = $elements[$i]['id'];
 		$dbContents = $elements[$i]['contents'];
 
 		// piece the contents back together with the html links embedded
-		$processed_contents = $this->Links_model->process_codes($contents, "forWeb", $pages_title, $elements_id);
+		$processed_contents = $this->Links_model->process_codes($contents, "forWeb", $pages_id, $elements_id);
         
-		$editable_contents = $this->Links_model->process_codes($dbContents, "forEditing", $pages_title, $elements_id);
+		$editable_contents = $this->Links_model->process_codes($dbContents, "forEditing", $pages_id, $elements_id);
             
 		//update the description
 		$elements[$i]['contents'] = $processed_contents;
@@ -555,7 +555,7 @@ class Elements_model extends CI_Model {
                     case 'text':
                         //sets description as the element displayed and then json array
                         //restores links in content
-                        $processed_contents = $this->Links_model->process_codes($element->contents, "forEditing", $pages_title, $elements_id);
+                        $processed_contents = $this->Links_model->process_codes($element->contents, "forEditing", $element->pages_id, $elements_id);
                         
                         $elementInHtml = '<div style="color: rgb(204, 204, 204); font-size: '.$element->fontSize.'px; font-family: Arial; height: auto; opacity: 1; text-align: center; width: '.$element->width.'px; ">'.$processed_contents.'</div>';
                         $jsonArray = json_encode($element);
@@ -636,13 +636,13 @@ class Elements_model extends CI_Model {
 			$this->load->model('Pages_model');
             
 			// gets the page title
-			$page_title = $this->Pages_model->get_page_from_element($elementId);
+			$page_id = $this->Pages_model->get_page_from_element($elementId);
 			
 			// deletes all the links in the links database belonging to this element
 			$this->Links_model->delete_links_by_element_id($elementId);
 			
 			// processes the text for any links again
-			$contents = $this->Links_model->process_codes($post_data['contents'], "forDb", $page_title, $elementId);
+			$contents = $this->Links_model->process_codes($post_data['contents'], "forDb", $page_id, $elementId);
             
 			// posts the new data with the coded links
 			$post_data['contents'] = $contents;
