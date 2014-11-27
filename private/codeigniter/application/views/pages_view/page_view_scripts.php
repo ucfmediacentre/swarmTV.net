@@ -27,7 +27,7 @@
 		initElements();
 		
 		$(".iframe").fancybox({
-			'width':600,
+			'width':640,
 			'type':'iframe',
 			'autoScale':'false'
 		});
