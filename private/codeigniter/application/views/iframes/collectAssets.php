@@ -2,7 +2,7 @@
 	
 	$mediaList = '';
 	
-	if ($data['toolName'] == "newVideo"){
+	if ($toolName == "newVideo"){
 	    echo "New Video Please!";
 	}
 	/*$data['pageTitle'] = $pageTitle;
