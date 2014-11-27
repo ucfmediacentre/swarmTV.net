@@ -1,14 +1,14 @@
 <?php
-	
-	$mediaList = '';
+	/*$mediaList = '';
 	
 	if ($toolName == "newVideo"){
 	    echo "New Video Please!";
 	}
-	/*$data['pageTitle'] = $pageTitle;
-	$data['pageId'] = $pageId;
-	$data['group'] = $group;
-	$data['author'] = $this->Users_model->get_user($userId);
-	$data['userId'] = $userId;*/
+	$toolName;
+	  $pageTitle;
+	  $pageId;
+	  $group;
+	  $author;
+	  $userId;*/
 	
 ?>
