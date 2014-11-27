@@ -9,17 +9,17 @@ $(document).ready(function() {
 		$(this).css('background-repeat', 'no-repeat');
 		$(this).css('background-position', 'center');
 		$(this).html('<div class="caption">'+videoCaption+'</div><img class="play" src="http:/img/play_icon.png" />');
-		var fancyWidth=eval($(this).attr('videowidth'))+26;
-		var fancyHeight=eval($(this).attr('videoheight'))+82;
+		//var fancyWidth=eval($(this).attr('videowidth'))+26;
+		//var fancyHeight=eval($(this).attr('videoheight'))+82;
 		
-		var URLString = 'http:/index.php/clip/play/';
+		/*var URLString = 'http:/index.php/clip/play/';
 		URLString = URLString+$(this).parent().attr('id')+'/';
 		URLString = URLString+fancyWidth+'/';
 		URLString = URLString+fancyHeight;
 		$(this).attr('href', URLString);
 		$(this).attr('target','fancybox-frame');
 		
-		$(this).addClass('iframe');
+		$(this).addClass('iframe');*/
 	});
 	
 	$('.videolink').click(function(){
