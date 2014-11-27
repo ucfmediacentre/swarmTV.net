@@ -1,6 +1,6 @@
 
 	<div class="video_gallery_container">
-	  <a class="videolink"></a>
+	  <a class="videoLink"></a>
 	</div>
 	
 	<form id="add_video_form" class="input_form" action="<?php echo base_url(); ?>index.php/elements/add" method="post" enctype="multipart/form-data">
