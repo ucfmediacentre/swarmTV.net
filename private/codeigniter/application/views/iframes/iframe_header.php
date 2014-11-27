@@ -28,6 +28,7 @@
 	<script src="<?php echo base_url(); ?>js/jquery.colorPicker.min.js"/></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>libraries/fancybox2/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/jquery.form.min.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/video_gallery.js"></script>
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<link rel="stylesheet" type="text/css" href="includes/videoPlayer_ie.css" />
