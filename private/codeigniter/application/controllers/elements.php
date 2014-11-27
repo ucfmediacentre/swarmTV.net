@@ -10,7 +10,6 @@ class Elements extends CI_Controller {
 	// processes an element and adds it to the `elements` and `updates` table
 	public function add()
 	{
-		
 		$this->load->model('Elements_model');
 		$this->load->model('Links_model');
 		$this->load->model('Pages_model');
@@ -35,6 +34,7 @@ class Elements extends CI_Controller {
 		// gets more page details
 		$pages_id = $this->Elements_model->return_pages_id();
 		$pages_title = $this->Pages_model->get_title($pages_id);
+		$this->session->set_userdata('group', $this->Pages_model->get_group($pages_id));
 		
 		// gets the CONTENTS as a string
 		$contents = $this->Elements_model->return_contents();
@@ -50,7 +50,7 @@ class Elements extends CI_Controller {
 		$update_action = 'created';
 		$this->Elements_model->create_update($update_action, $update_elements_id);
 	}
-
+	
 	// updates element and creates new update and returns "1" if successful
 	public function update()
 	{

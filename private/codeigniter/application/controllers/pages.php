@@ -41,6 +41,11 @@ class Pages extends CI_Controller {
 	  // check security (logged in) and save state of openness to the session
 	  $this->load->library('session');
 	  $this->session->set_userdata('openness', NULL);
+	  $is_logged_in = $this->session->userdata('logged_in');
+	  if (!isset($is_logged_in) || $is_logged_in != true){
+		$this->session->set_userdata('username', 'Anonymous');
+		$this->session->set_userdata('user_id', '1'); // id of Anonymous
+	  }
 	  if ($group_details->openness == 'public'){	
 		  $this->session->set_userdata('openness', 'public');	
 	  } else {
@@ -93,11 +98,12 @@ class Pages extends CI_Controller {
 		$this->load->view('pages_view/page_info_form');
 		$this->load->view('pages_view/page_view_scripts');
 		$this->load->view('footer');
-	  }else
-	  {
+	  } else {
 		//Page was not found, so create a new one
-		$page_id=$this->Pages_model->insert_page(urldecode($group), urldecode($page_title));
-		redirect('/pages/view/'.urldecode($group).'/'.urldecode($page_title), 'location');
+		//$page_id=$this->Pages_model->insert_page(urldecode($group), urldecode($page_title));
+		//redirect('/pages/view/'.urldecode($group).'/'.urldecode($page_title), 'location');
+		// - No, dont create a new one! Tell people there is nothing there
+		show_404('page');
 		  
 	  }
 	}

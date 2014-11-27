@@ -36,6 +36,39 @@ class Clip extends CI_Controller {
 		
 	}
 	
+	
+	// plays all video clips on a page
+	public function playAllVideos($pageId)
+	{		
+		$this->load->helper('url');
+		$this->load->model('Elements_model');
+		
+		$videoList = $this->Elements_model->getAllVideos($pageId); //$videoList is an array
+		
+		foreach ($videoList as $row)
+			{
+				$timelineJSON = $row->timeline;
+				$timeline = json_decode($timelineJSON);
+				if ($timeline !== NULL){
+					$data['in'] = $timeline->in;
+					$data['out'] = $timeline->out;
+					$data['duration'] = $timeline->duration;
+				} else {
+					$data['in'] = 0;
+					$data['out'] = "100";
+					$data['duration'] = "100";
+				}
+				$json[]=array("src" => substr($row->filename, 0 , -4), "in" => ($data['in']), "out" => ($data['out']));
+			}
+		
+		$myDirtyString=json_encode($json);
+		$jsonSequence = str_replace("\/","/",$myDirtyString);
+		$data['jsonSequence']=$jsonSequence;
+		
+		$this->load->view('sequencePlayer_view', $data);
+		
+	}
+	
 	// sets a thumbnail from a video at a specific position
 	public function setThumbnail($id, $currentPos)
 	{		

@@ -11,7 +11,6 @@
 	
 	$(document).ready(function(){
 		
-		
 		var shiftPressed = false;
 		
 		$(window).keydown(function(evt) {
@@ -104,7 +103,7 @@
 				$(this).focusout(function(updateTextElementContent)
 				{
                      
-					// activates the drag and deactivate the content editable
+					// activates the drag and deactivates the contenteditable
 					$(content_container).removeAttr('contenteditable');
 					$(this).draggable({ disabled: false });
 					
@@ -112,15 +111,15 @@
 					var content_container = $(this).find('.text-content');
 					var link_id = $(this).attr('id');
 					var new_contents = $(content_container).html();
-                    
-                    // sends edit to database, but waits half a second so that the delete button can be checked
-                    setTimeout(function(){
-                        updateElement(link_id, 'text-content', new_contents);
-                        
-                        $(this).find('.delete_button').fadeOut();
-                        // removes the event
-                        $(this).unbind('focusout', updateTextElementContent);
-                    },250);
+					
+					// sends edit to database, but waits half a second so that the delete button can be checked
+					setTimeout(function(){
+					    updateElement(link_id, 'text-content', new_contents);
+					    
+					    $(this).find('.delete_button').fadeOut();
+					    // removes the event
+					    $(this).unbind('focusout', updateTextElementContent);
+					},250);
 				});
 			}
 		  }
@@ -200,8 +199,8 @@
 				var text_form_text = element_description;
 				$("#textSizer").text(text_form_text);
 				$("#textSizer").css("fontSize", "15px");
-				if ($("#textSizer").width()>320){
-				  $("#textSizer").width(320);
+				if ($("#textSizer").width()>500){
+				  $("#textSizer").width(500);
 				}
 				var widthVal = $("#textSizer").width()+20;
 				var heightVal = $("#textSizer").height()+20;
@@ -395,8 +394,7 @@
 						}
 					});
 				}
-			}		 
-            
+			}		
 			if ($(elm).hasClass('video')) $(elm).css({'height':'155', 'width':'240'});
             
 			// Adds delete button unless the author made it uneditable
@@ -433,8 +431,8 @@
 	function initAudio(elm, index)
 	{
         
-		$(elm).css("height","62px");
-		$(elm).css("width", "352px"); 
+		$(elm).css("height","100px");
+		$(elm).css("width", "500px"); 
 		var filename_NoExt = page_elements_json[index].filename.split('.');
 		var audio_html = '<audio controls preload="none" style="width:320px";>';
 		audio_html = audio_html + '<source src="' + base_url + 'assets/audio/' + filename_NoExt[0] + '.mp3" type="audio/mpeg">';
@@ -448,13 +446,12 @@
 	// ----------------------------------------------- VIDEO
 	function initVideo(elm, index)
 	{
-	  
 		var filename_NoExt = page_elements_json[index].filename.split('.');
-        var video_html = '<a class="videoLink" videofile="' + filename_NoExt[0];
-		video_html = video_html + '" videowidth="640" videoheight="'+(Math.round((640/page_elements_json[index].width)*page_elements_json[index].height)+65)+'"';
+		var video_html = '<a class="videoLink" videofile="' + filename_NoExt[0];
+		video_html = video_html + '" videowidth="480" videoheight="'+(Math.round((480/page_elements_json[index].width)*page_elements_json[index].height)+65)+'"';
 		video_html = video_html + ' videocaption="' + page_elements_json[index].description + '"></a>';
-        //video_html = video_html + '<p style="text-align:center;";><strong>Download Video: </strong><a href="' + base_url + 'assets/video/' + filename_NoExt[0] + '.mp4">MP4</a></p>';
-        var video_element = $(video_html);
+		//video_html = video_html + '<p style="text-align:center;";><strong>Download Video: </strong><a href="' + base_url + 'assets/video/' + filename_NoExt[0] + '.mp4">MP4</a></p>';
+		var video_element = $(video_html);
 		
 		$(elm).append(video_element);
 	}
@@ -464,28 +461,33 @@
     {
 	
 		// creates an object with only the id 
-		var changes = {'id':elementId};
+		var changes = {
+		  'id':elementId,
+		  'author':"<?php echo $this->session->userdata('username'); ?>"
+		};
 		
 		// adds the specific changes to the object
 		switch(change)
 		{
 			case 'size':
-				var textContents = $('#' + elementId).text();
-				window.parent.$("#textSizer").text(textContents);
-				window.parent.$("#textSizer").css("fontSize", $('#' + elementId).css('font-size')+"px");
-				if (window.parent.$("#textSizer").width()>320){
-				  window.parent.$("#textSizer").width(320);
-				}
-				var widthVal = window.parent.$("#textSizer").width()+20;
-				var heightVal = window.parent.$("#textSizer").height()+20;
-	  
-	  
-				// updates width and height
-				changes.width = parseInt($("#textSizer").css('width'), 10);
-				changes.height = parseInt($("#textSizer").css('height'), 10);
 				// only update font size if the element type is text (found some problems with positions otherwise)
 				if ($('#' + elementId).hasClass('text')) {
 				  changes.fontSize = $('#' + elementId).css('font-size');
+				  var textContents = $('#' + elementId).text();
+				  window.parent.$("#textSizer").text(textContents);
+				  window.parent.$("#textSizer").css("fontSize", $('#' + elementId).css('font-size')+"px");
+				  if (window.parent.$("#textSizer").width()>500){
+				    window.parent.$("#textSizer").width(500);
+				  }
+				  var widthVal = window.parent.$("#textSizer").width()+20;
+				  var heightVal = window.parent.$("#textSizer").height()+20;
+				  // updates width and height
+				  changes.width = parseInt($("#textSizer").css('width'), 10);
+				  changes.height = parseInt($("#textSizer").css('height'), 10);
+				} else {
+				  // updates image elements with width and height
+				  changes.width = parseInt($('#' + elementId).css('width'), 10);
+				  changes.height = parseInt($('#' + elementId).css('height'), 10);
 				}
 				break;
 			case 'position':
@@ -498,7 +500,6 @@
 				changes.contents = alt;
 				break; 
 		}
-
 		
 		// Ajax the values to the pages controller  
 		$.ajax({

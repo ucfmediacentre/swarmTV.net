@@ -12,14 +12,14 @@
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-	<link rel="stylesheet" href="http://www.digitaldialogues.org/css/normalize.css">
-	<link rel="stylesheet" href="http://www.digitaldialogues.org/css/main.css">
+	<link rel="stylesheet" href="http://www.swarmtv.net/css/normalize.css">
+	<link rel="stylesheet" href="http://www.swarmtv.net/css/main.css">
 	
 	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
-	<script src="http://www.digitaldialogues.org/js/vendor/jquery-1.8.3.min.js"></script>
-	<script type="text/javascript" src="http://www.digitaldialogues.org/libraries/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
-	<script src="http://www.digitaldialogues.org/js/vendor/jquery.ui.touch-punch.min.js"></script>
-	<script src="http://www.digitaldialogues.org/js/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="http://www.swarmtv.net/js/vendor/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="http://www.swarmtv.net/libraries/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>
+	<script src="http://www.swarmtv.net/js/vendor/jquery.ui.touch-punch.min.js"></script>
+	<script src="http://www.swarmtv.net/js/vendor/modernizr-2.6.2.min.js"></script>
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<link rel="stylesheet" type="text/css" href="includes/videoPlayer_ie.css" />
@@ -29,8 +29,7 @@
 
 	<h1>Your email address was successfully verified.</h1>
 	
-	<p>Thank you for joining the Digital Dialogues community.</p><p><a href="<?php echo base_url() ?>index.php/pages/view/public/home">public : Home</a>&nbsp;|&nbsp;<a href="<?php echo base_url() ?>index.php/pages/view/public/sandpit">Sandpit</a>&nbsp;|&nbsp;<a href="<?php echo base_url() ?>index.php/pages/view/public/help">Help</a>&nbsp;|&nbsp;<a href="<?php echo base_url() ?>index.php/verifylogin/index/pages/public/home">Log In</a></p>
-	
+	<p>Thank you for joining the Swarm TV community.</p><p><a href="<?php echo base_url() ?>index.php/pages/view/public/home">public : Home</a>&nbsp;|&nbsp;<a href="<?php echo base_url() ?>index.php/pages/view/public/sandpit">Sandpit</a>&nbsp;|&nbsp;<a href="<?php echo base_url() ?>index.php/pages/view/public/help">Help</a>&nbsp;|&nbsp;<a href="<?php echo base_url() ?>index.php/verifylogin/index/pages/public/home">Log In</a></p>
 	<!-- Google Analytics -->
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -38,7 +37,7 @@
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	  
-		ga('create', 'UA-47930876-1', 'digitaldialogues.org');
+		ga('create', 'UA-47930876-1', 'swarmtv.net');
 		ga('send', 'pageview');
 	  
 	</script>

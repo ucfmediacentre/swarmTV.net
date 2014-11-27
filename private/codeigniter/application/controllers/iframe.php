@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Iframe extends CI_Controller {
 
 	public function index()
@@ -11,11 +10,13 @@ class Iframe extends CI_Controller {
 	public function create($toolName="newText", $pageTitle=NULL, $pageId=NULL, $group="public", $userId="1")
 	{
 	  $this->load->helper('url');
+	  $this->load->model('Users_model');
 	  
 	  $data['toolName'] = $toolName;
 	  $data['pageTitle'] = $pageTitle;
 	  $data['pageId'] = $pageId;
 	  $data['group'] = $group;
+	  $data['author'] = $this->Users_model->get_user($userId);
 	  $data['userId'] = $userId;
 		
 	  $this->load->view('iframes/iframe_header', $data);
@@ -92,7 +93,7 @@ class Iframe extends CI_Controller {
 	  $post_data = $this->input->post(NULL, TRUE); // return all post data filtered XSS - SCRIPT SAFE
 	  
 	  $groups_list= $this->Groups_model->list_all();
-
+	  
 	  $i = 0;
 	  $groupsString = "";
 	  
@@ -134,7 +135,7 @@ class Iframe extends CI_Controller {
 	  $data['groupsList'] = $groups_list;
 	  
 	  //$data['attribution'] = $post_data['attribution'];
-	  //$data['author'] = $post_data['author'];
+	  $data['author'] = $session_data['username'];
 	  $data['backgroundColor'] = $post_data['backgroundColor'];
 	  $data['color'] = $post_data['color'];
 	  $data['contents'] = $post_data['contents'];

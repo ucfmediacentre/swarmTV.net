@@ -194,6 +194,7 @@ class Pages_model extends CI_Model {
 	// gets the page title of a page with a specified id
 	function get_page_from_element($elementId)
 	{
+	    
    		$this->db->where('id', $elementId);
    		$this->db->select('pages_id');
    		$query = $this->db->get('elements');
@@ -201,16 +202,39 @@ class Pages_model extends CI_Model {
 		$row = $query->row(); 
 		$pageId = $row->pages_id;
 		
-   		$this->db->where('id', $pageId);
+		$this->db->where('id', $pageId);
    		$this->db->select('title');
    		$query = $this->db->get('pages');
 		
 		if ($query->num_rows() > 0)
 		{
 			$row = $query->row(); 
-			return $row;
-		} else
+			return $row->title;
+		} else {
+			return null;
+		}
+	}
+	
+	// gets the page title of a page with a specified id
+	function get_group_from_element($elementId)
+	{
+	    
+		$this->db->where('id', $elementId);
+   		$this->db->select('pages_id');
+   		$query = $this->db->get('elements');
+		
+		$row = $query->row(); 
+		$pageId = $row->pages_id;
+		
+		$this->db->where('id', $pageId);
+   		$this->db->select('group');
+   		$query = $this->db->get('pages');
+		
+		if ($query->num_rows() > 0)
 		{
+			$row = $query->row(); 
+			return $row->group;
+		} else {
 			return null;
 		}
 	}
@@ -234,14 +258,26 @@ class Pages_model extends CI_Model {
 	{
 		// first insert user's requirements in to database
 		//collect variables from the form
-   		$title = $this->input->post('title');
+   		$newTitle = $this->input->post('title');
+		//$response = "$ newTitle = ".$newTitle."<br />";
+   		$author = $this->input->post('author');
+		//$response = "$ author = ".$author."<br />";
    		$group = $this->input->post('group');
+		//$response = $response."$ group = ".$group."<br />";
    		$currentPageTitle = $this->input->post('currentPageTitle');
+		//$response = $response."$ currentPageTitle = ".$currentPageTitle."<br />";
    		$description = $this->input->post('description');
+		if ($description == ""){
+		    $description = NULL;
+		}
+		//$response = $response."$ description = ".$description."<br />";
    		$currentPageId = $this->input->post('currentPageId');
+		//$response = $response."$ currentPageId = ".$currentPageId."<br />";
+		//echo $response;
+	    //exit;
 		
 		// check to see if this page name already exists
-   		$this->db->where('title', $title);
+   		$this->db->where('title', $newTitle);
    		$this->db->where('group', urldecode($group));
    		$this->db->select('title');
    		$query = $this->db->get('pages');
@@ -255,9 +291,8 @@ class Pages_model extends CI_Model {
 		} else {
 			
 			$data = array(
-				'title' => URLdecode($title),
+				'title' => URLdecode($newTitle),
 				'description' => $description,
-				'keywords' => $keywords,
 				'group' => urldecode($group)
 			);
 			
@@ -269,7 +304,7 @@ class Pages_model extends CI_Model {
 		// then insert link on the current Page
 		// first create the link to the new page
 		$data = array(
-			'linkTitle' => URLdecode($title),
+			'linkTitle' => URLdecode($newTitle),
 			'linkTitleGroup' => URLdecode($group),
 			'pageTitle' => $currentPageTitle,
 			'pageTitleGroup' => URLdecode($group)
@@ -281,7 +316,7 @@ class Pages_model extends CI_Model {
 		$data = array(
 			'linkTitle' => URLdecode($currentPageTitle),
 			'linkTitleGroup' => URLdecode($group),
-			'pageTitle' => URLdecode($title),
+			'pageTitle' => URLdecode($newTitle),
 			'pageTitleGroup' => URLdecode($group)
 		);
 		$this->db->insert('links', $data);
@@ -325,7 +360,19 @@ class Pages_model extends CI_Model {
 		$this->db->where('id', $linkBack_id);
 		$this->db->update('links', $data);
 		
-		return 'You have successfully created a page called "' . $title . '"';
+		//create new record for 'updates' table 
+		$data = array(
+			'pages_id' => $added_page_id,
+			'group' => $group,
+			'jsonArray' => json_encode($this->get_page($group, URLdecode($newTitle))),
+			'summary' => "New page created: ".URLdecode($newTitle),
+			'page' => URLdecode($newTitle),
+			'elementInhtml' => "<div style='color: rgb(204, 204, 204); font-size: 15px; font-family: Arial; height: auto; opacity: 1; text-align: center; width: 320px; '>".URLdecode($newTitle)."</div>",
+			'username' => $author
+		);
+		$this->db->insert('updates', $data);
+		
+		echo 'You have successfully created a page called "' . $newTitle . '"';
 			
 	}
    

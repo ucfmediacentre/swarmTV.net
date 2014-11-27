@@ -16,10 +16,10 @@ class Feed extends CI_Controller {
 	
 	
 	$group = $this->input->get('group');
-	$data['feed_name'] = 'digitaldialogues.org';  
+	$data['feed_name'] = 'swarmtv.net';  
 	$data['encoding'] = 'utf-8';  
-	$data['feed_url'] = base_url() . "index.php/feed?group = " . $group;  
-	$data['page_description'] = 'Digital Dialogues Recent Changes';  
+	$data['feed_url'] = base_url() . "index.php/feed?group=" . $group;  
+	$data['page_description'] = 'Swarm TV: Recent Changes';  
 	$data['page_language'] = 'en-en';  
 	$data['creator_email'] = 'jemmmackay@gmail.com';  
 	$data['updates'] = $this->updates->getUpdates($group);

@@ -41,7 +41,7 @@ class Elements_model extends CI_Model {
     // gets all of the elements for a specific page
     function get_all_elements($page_id)
     {
-		$this->load->model('Pages_model');
+	$this->load->model('Pages_model');
     	$query = $this->db->get_where('elements', array('pages_id' => $page_id));
     	
     	// loop through each element and update the description
@@ -49,22 +49,32 @@ class Elements_model extends CI_Model {
     	
     	for ($i = 0; $i < sizeof($elements); $i++)
     	{	
-			$contents = $elements[$i]['contents'];
-            $pages_id = $elements[$i]['pages_id'];
-            $pages_title = $this->Pages_model->get_title($pages_id);
-            $elements_id = $elements[$i]['id'];
-            $dbContents = $elements[$i]['contents'];
+		$contents = $elements[$i]['contents'];
+		$pages_id = $elements[$i]['pages_id'];
+		$pages_title = $this->Pages_model->get_title($pages_id);
+		$elements_id = $elements[$i]['id'];
+		$dbContents = $elements[$i]['contents'];
 
-			// piece the contents back together with the html links embedded
-            $processed_contents = $this->Links_model->process_codes($contents, "forWeb", $pages_title, $elements_id);
+		// piece the contents back together with the html links embedded
+		$processed_contents = $this->Links_model->process_codes($contents, "forWeb", $pages_title, $elements_id);
         
-            $editable_contents = $this->Links_model->process_codes($dbContents, "forEditing", $pages_title, $elements_id);
+		$editable_contents = $this->Links_model->process_codes($dbContents, "forEditing", $pages_title, $elements_id);
             
-			//update the description
-			$elements[$i]['contents'] = $processed_contents;
-            $elements[$i]['editableContents'] = $editable_contents;
+		//update the description
+		$elements[$i]['contents'] = $processed_contents;
+		$elements[$i]['editableContents'] = $editable_contents;
     	}
     	return $elements;
+    }
+    
+    // gets all of the elements for a specific page
+    function getAllVideos($pageId)
+    {
+    	$query = $this->db->where('pages_id', $pageId);
+    	$query = $this->db->where('type', 'video');
+	$this->db->order_by("x", "asc");
+	
+    	return $this->db->get('elements')->result();
     }
     
     // gets a specific element by its id
@@ -107,7 +117,6 @@ class Elements_model extends CI_Model {
             	break;
             }
         } 
-		
 		
 		// send error if the file does not validate
 		if ($this->current_mime_type_index < 0) 
@@ -159,20 +168,19 @@ class Elements_model extends CI_Model {
                 $execute = shell_exec($renameOgvToOga);
                 break;
             case 'video':
-                //set string variables for ffmpeg string
-                //$filename = $full_name;
-                //$filename = substr($filename, 0, -4);
                 //create OGV version
                 //Jem's URL
                 //$createOgvVersion = "/usr/local/bin/ffmpeg2theora ~/Sites/digitaldialogues/www/assets/video/".$full_name;
-  
+                 
                 //Public server's URL
-                //$createOgvVersion = "/usr/local/bin/ffmpeg2theora /var/www/assets/video/".$full_name;
-				$createOgvVersion = "/usr/bin/ffmpeg -i /home/swarmtvn/public_html/assets/video/".$full_name." -acodec libvorbis -ac 2 -ab 96k -ar 44100 -b 345k /home/swarmtvn/public_html/assets/video/".$filename.".ogv";
-				//echo $createOgvVersion;
-				//exit;
+                $createOgvVersion = "/usr/bin/ffmpeg -i /home/swarmtvn/public_html/assets/video/".$full_name." -acodec libvorbis -ac 2 -ab 96k -ar 44100 -b 345k /home/swarmtvn/public_html/assets/video/".$filename.".ogv";
+                
                 $execute = shell_exec($createOgvVersion);
                 
+                //set string variables for ffmpeg string
+                $filename = $full_name;
+                $filename = substr($filename, 0, -4);
+				
                 //Jem's URLs
                 //$videoDirectory = "/Users/media/Sites/digitaldialogues/www/assets/video/";
                 //$videopostersDirectory = "/Users/media/Sites/digitaldialogues/www/assets/videoposters/";
@@ -268,7 +276,6 @@ class Elements_model extends CI_Model {
 				$extension = "mp4";
 				break;
 		}
-		
 		$uploads_dir = '/public_html/assets/' . $folder . '/';
 		$unique_name = $folder . '-' . uniqid();
 		$full_name = $unique_name . '.' . $extension;
@@ -499,7 +506,6 @@ class Elements_model extends CI_Model {
     function add_element_to_database()
 	{
 	  
-	  
 		if (!$this->db->insert('elements', $this->data))
 		{
 			// should probably check to see if a page exist with this id as well?
@@ -519,7 +525,10 @@ class Elements_model extends CI_Model {
 	// updates the database with the new description
     function update_description($id, $description)
 	{
-		$data = array( 'description' => $description);
+		$data = array(
+			'author' => $this->session->userdata('username'),
+			'description' => $description
+		);
 
 		$this->db->where('id', $id);
 		$this->db->update('elements', $data); 
@@ -593,7 +602,10 @@ class Elements_model extends CI_Model {
 	// updates the database with an id's contents
     function update_contents($id, $contents)
 	{
-		$data = array( 'contents' => $contents);
+		$data = array(
+			'author' => $this->session->userdata('username'),
+			'contents' => $contents
+		);
         
         $this->db->where('id', $id);
         $this->db->update('elements', $data);
@@ -611,7 +623,7 @@ class Elements_model extends CI_Model {
 	public function update_element()
 	{
 	  
-        //If anything is updated get the post data
+		//If anything is updated get the post data
 		$post_data = $this->input->post(NULL, TRUE); // return all post data filtered XSS - SCRIPT SAFE
 		
 		//finds the id of the element
@@ -619,20 +631,20 @@ class Elements_model extends CI_Model {
 
 		if ($this->input->post('contents'))
 		{
-            //if it is a text element and therefore has contents ...
+			//if it is a text element and therefore has contents ...
 			$this->load->model('Links_model');
 			$this->load->model('Pages_model');
             
-            // gets the page title
-			$pages_title = $this->Pages_model->get_page_from_element($elementId);
+			// gets the page title
+			$page_title = $this->Pages_model->get_page_from_element($elementId);
 			
-            // deletes all the links in the links database belonging to this element
+			// deletes all the links in the links database belonging to this element
 			$this->Links_model->delete_links_by_element_id($elementId);
 			
-            // processes the text for any links again
-			$contents = $this->Links_model->process_codes($post_data['contents'], "forDb", $pages_title, $elementId);
+			// processes the text for any links again
+			$contents = $this->Links_model->process_codes($post_data['contents'], "forDb", $page_title, $elementId);
             
-            // posts the new data with the coded links
+			// posts the new data with the coded links
 			$post_data['contents'] = $contents;
 		
 		}

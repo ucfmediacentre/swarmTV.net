@@ -1,3 +1,4 @@
+
 <div id="background">
   <div id="page_title_wrapper">
 	<h1 id="page_title"> <?php echo "<span style='color:gray;'>".urldecode($group) . " :</span> " . $title; ?></h1><h3 id="page_description" > is part of a private group. If you would like to request permission to join this group, please click Ok</h3>
@@ -8,7 +9,7 @@
 			<input type="button" value="Cancel" onclick="goBack();" />
 			<input type="submit" value="Ok"  onclick="notifyCreator(); alert('Your request has been sent to the creator of this group.'); goBack();" />
 			<br /><br />
-  <a href="../../../pages/view/public/home">public : Home</a>&nbsp;|&nbsp;<?php if ($this->session->userdata('logged_in') != 1){
+			<a href="../../../pages/view/public/home">public : Home</a>&nbsp;|&nbsp;<?php if ($this->session->userdata('logged_in') != 1){
 		echo '<a href="../../../verifylogin/index/pages/' . $group . '/' . $title . '">Log In</a>';  
 	} else {
 		echo $this->session->userdata('username') . ' <a href="../../../pages/view/log_out/pages/' . $group . '/' . $title . '">Log Out</a>';
@@ -41,4 +42,12 @@
 			redirect(base_url()+'index.php/pages/view/public/home', 'location');
 		}
 	}
+</script>
+
+<script language="JavaScript1.2" type="text/javascript">
+  <!--
+  $( "#search" ).click(function() {
+	  $( "#searchForm" ).submit();
+  });
+  //-->
 </script>

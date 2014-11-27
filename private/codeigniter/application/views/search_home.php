@@ -1,17 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-    
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Digital Dialogues</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Swarm TV: Recent Changes</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/normalize.css">
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/main.css">
         <script src="<?php echo base_url(); ?>js/vendor/jquery-1.8.3.min.js"></script>
         <style type="text/css">
             html, body {
-                width:100%;
+				width:100%;
                 height:100%;
                 padding:0px;
                 overflow:hidden;
-                background-color:#000022;
+                background-color:#002;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -21,7 +31,13 @@
                 font-size: 1em
             }
         }
-        #the-swarm {}
+        #the-swarm {
+		}
+		
+		#canvasDiv {
+          position:absolute;
+		  top:100px;
+		}
 		
         #the-swarm.linkable {
             cursor:pointer;
@@ -56,8 +72,8 @@
 	<div id="page_title_wrapper">
 	    <h1 id="page_title"> <?php echo $group; ?> : Search Map </h1>	
 	</div>
-        
-    <div id="main_pages_wrapper">
+	
+	<div id="main_pages_wrapper">
         <a href="../../pages/view/<?php echo $group; ?>/home">Home</a>&nbsp;|&nbsp;<a href="../../recentChanges?group=<?php echo $group; ?>">Recent Changes</a>&nbsp;|&nbsp;<a href="../../pages/view/public/sandpit">Sandpit</a>&nbsp;|&nbsp;<a href="../../pages/view/public/help">Help</a>
 	<form action="<?php echo base_url(); ?>index.php/search/map/<?php echo $group; ?>" method="get" enctype="multipart/form-data" id="filter_form">
             <br />
@@ -65,6 +81,7 @@
             <input type="submit" value="Search">
         </form>
     </div><br /><br />
+        
 			<div id="oldBrowser" style="display:none" width="600px">This website is a project designed to work with <strong>HTML5</strong>, so please download a modern browser if you can (its worth the wait!). If you haven't got IT permissions to do this, try Chrome portable (<a href="http://portableapps.com/apps/internet/google_chrome_portable">Chrome Portable</a>). You should be able to use that, OK. Otherwise, go straight to the home page here: <a href="<?php echo base_url(); ?>index.php/pages/view/<?php echo $group; ?>/home">Home</a>, and have a play around there. Thanks very much!<br /><br /><?php echo $listview; ?></div>
         <canvas class="" style="opacity: 1; display: inline;" id="the-swarm" width="1680" height="350"></canvas>
         <img id="bg" src="<?php echo base_url(); ?>img/default_background.jpg" style="display:none;" />
@@ -130,7 +147,7 @@
                             sys.eachNode(function (node, pt) {
                                 var w = Math.max(20, 20 + gfx.textWidth(node.name))
                                 gfx.rect(pt.x - w / 2, pt.y - 8, w, 20, 4, {
-                                    fill: '#000022',
+                                    fill: "#002",
                                     width: 2,
 									stroke: node.data.stroke
                                 });
@@ -353,6 +370,14 @@
                 })
             })(this.jQuery)
         </script>
+
+		<script language="JavaScript1.2" type="text/javascript">
+		  <!--
+		  $( "#search" ).click(function() {
+			  $( "#searchForm" ).submit();
+		  });
+		  //-->
+		</script>		
         <!-- Google Analytics -->
         <script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -360,7 +385,7 @@
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 		  
-			ga('create', 'UA-47930876-1', 'digitaldialogues.org');
+			ga('create', 'UA-47930876-1', 'swarmtv.net');
 			ga('send', 'pageview');
 		  
 		</script>

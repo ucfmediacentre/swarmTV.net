@@ -1,4 +1,4 @@
-<!-- replaces old Page View look (page_view original.php) /-->
+
 <div id="background">
   <div id="page_title_wrapper">
 	<h1 id="page_title"> <span style="color:gray"><?php echo urldecode($page_info->group) . " : </span>" . $page_info->title; ?> </h1>	
@@ -22,14 +22,14 @@
 	  <input type="submit" value="Search">
 	</form>
   </div>
-  <div id="editButtons">
+<div id="editButtons">
 	<p>Add:
-	<a href="<?php echo base_url(); ?>index.php/iframe/create/newText/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Text</a>&nbsp;|&nbsp;
-	<a href="<?php echo base_url(); ?>index.php/iframe/create/newImage/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Image</a>&nbsp;|&nbsp;
-	<a href="<?php echo base_url(); ?>index.php/iframe/create/newAudio/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Audio</a>&nbsp;|&nbsp;
-	<a href="<?php echo base_url(); ?>index.php/iframe/create/newVideo/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Video</a>&nbsp;|&nbsp;
-	<a href="<?php echo base_url(); ?>index.php/iframe/create/newPage/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Page</a>&nbsp;|&nbsp;
-	<a href="<?php echo base_url(); ?>index.php/iframe/create/newGroup/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $user_id ?>" class="iframe">Group</a>
+	<a href="<?php echo base_url(); ?>index.php/iframe/create/newText/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Text</a>&nbsp;|&nbsp;
+	<a href="<?php echo base_url(); ?>index.php/iframe/create/newImage/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Image</a>&nbsp;|&nbsp;
+	<a href="<?php echo base_url(); ?>index.php/iframe/create/newAudio/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Audio</a>&nbsp;|&nbsp;
+	<a href="<?php echo base_url(); ?>index.php/iframe/create/newVideo/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Video</a>&nbsp;|&nbsp;
+	<a href="<?php echo base_url(); ?>index.php/iframe/create/newPage/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Page</a>&nbsp;|&nbsp;
+	<a href="<?php echo base_url(); ?>index.php/iframe/create/newGroup/<?php echo $page_info->title ?>/<?php echo $page_info->id ?>/<?php echo $page_info->group ?>/<?php echo $user_id ?>" class="iframe">Group</a>
 	<br /><br />
 	<span style="font-size:10px;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="<?php echo base_url(); ?>img/ccLogo.png" /></a><br />Any contributions made to this website will come under a <br /><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons License Attribution 3.0</a></span>
   </div>
