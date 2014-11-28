@@ -50,6 +50,43 @@ class Iframe extends CI_Controller {
 	}
 	
 	
+	// Temporary function to populate database
+	public function populateFTPVideos()
+	{
+		$this->load->helper('url');
+		$this->load->model('Elements_model');
+		
+		$videosToPostDir= "/home/swarmtvn/public_html/assets/videoposters/";
+
+		$files = scandir($videosToPostDir);
+		$i = 0;
+		foreach ($files as $val){
+			$filename = substr($val, 0, ($val.length-4));
+			// search for filename in the element database
+			$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
+			// if it is not found then add it
+			if ($elementRecord->num_rows() == 0) {
+				$data['author'] = "Anonymous";
+				$data['description'] = $filename;
+				$data['filename'] = $filename.".mp4";
+				$data['group'] = "University of the Village";
+				$data['height'] = "288";
+				$data['page_id'] = "1094";
+				$data['timeline'] = '{"in":0,"out":104.42,"duration":104.42}';
+				$data['type'] = "video";
+				$data['width'] = "512";
+				$data['x'] = 50 + (i*220);
+				$data['y'] = 100 + (i*135);
+				$this->Elements_model->addVideo($data);
+			}
+			$i++;
+			
+			if ($i>5) {exit;}
+		}
+	  
+	}
+	
+	
 	//
 	public function edit($toolName="textEditor", $elementId=NULL)
 	{

@@ -730,6 +730,34 @@ class Elements_model extends CI_Model {
 		return $this->data['pages_id'];
 	}
 	
+	public function findVideo($videoname)
+	{	
+		$this->db->where('filename', $videoname);
+		$query = $this->db->get('elements');
+		return $query;
+	}
+	
+	public function addVideo($data)
+	{	
+		//create array to insert into updates table
+            $videodata = array(
+                'author' => $data['author'],
+                'description' => $data['description'],
+                'filename' =>  $data['filename'],
+                'group' => $data['group'],
+                'height' => $data['height'],
+                'page_id' => $data['page_id'],
+                'timeline' => $data['timeline'],
+                'type' => $data['type'],
+		'width' => $data['width'],
+		'x' => $data['x'],
+		'y' => $data['y']
+            );
+            
+            //insert new record into updates table
+            $this->db->insert('elements', $videodata);
+	}
+	
 	// deletes the element with specific id in `elements` table, creates it in the `deleted elements` table, and creates a new update in `updates` table
     public function delete($id)
 	{
