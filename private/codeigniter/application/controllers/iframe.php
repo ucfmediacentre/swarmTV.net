@@ -59,12 +59,11 @@ class Iframe extends CI_Controller {
 		$videosToPostDir= "/home/swarmtvn/public_html/assets/videoposters/";
 
 		$files = scandir($videosToPostDir);
-		var_dump($files);
-		exit;
 		$i = 0;
 		foreach ($files as $val){
+			if ($val.length <= 4) {exit;}
 			$filename = substr($val, 0, ($val.length-5));
-			
+			echo $filename."<br>";
 			// search for filename in the element database
 			$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
 			// if it is not found then add it
