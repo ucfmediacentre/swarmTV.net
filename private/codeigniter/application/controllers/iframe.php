@@ -83,11 +83,11 @@ class Iframe extends CI_Controller {
 					$data['x'] = 50 + ($i*220);
 					$data['y'] = 100 + ($i*135);
 					$this->Elements_model->addVideo($data);
+					$i++;
+					if ($i>20) {exit;}
 				}
 			}
-			$i++;
 			
-			if ($i>20) {exit;}
 		}
 	  
 	}
