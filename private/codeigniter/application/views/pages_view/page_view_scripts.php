@@ -446,7 +446,7 @@
 	// ----------------------------------------------- VIDEO
 	function initVideo(elm, index)
 	{
-		var filename_NoExt = page_elements_json[index].filename.split('.');
+		var filename_NoExt = substr(page_elements_json[index].filename, 0, strlen(page_elements_json[index].filename)-4);
 		var video_html = '<a class="videoLink" videofile="' + filename_NoExt[0];
 		video_html = video_html + '" videowidth="480" videoheight="'+(Math.round((480/page_elements_json[index].width)*page_elements_json[index].height)+65)+'"';
 		video_html = video_html + ' videocaption="' + page_elements_json[index].description + '"></a>';
