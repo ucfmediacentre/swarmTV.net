@@ -61,9 +61,8 @@ class Iframe extends CI_Controller {
 		$files = scandir($videosToPostDir);
 		$i = 0;
 		foreach ($files as $val){
-			var_dump($val);
-			if ($val.length <= 4) {exit;}
-			$filename = substr($val, 0, ($val.length-5));
+			if (strlen($val) <= 4) {exit;}
+			$filename = substr($val, 0, strlen($val)-5);
 			echo $filename."<br>";
 			// search for filename in the element database
 			$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
