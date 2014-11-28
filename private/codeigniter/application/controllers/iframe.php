@@ -77,8 +77,8 @@ class Iframe extends CI_Controller {
 					$data['timeline'] = '{"in":0,"out":104.42,"duration":104.42}';
 					$data['type'] = "video";
 					$data['width'] = "512";
-					$data['x'] = 50 + (i*220);
-					$data['y'] = 100 + (i*135);
+					$data['x'] = 50 + ($i*220);
+					$data['y'] = 100 + ($i*135);
 					$this->Elements_model->addVideo($data);
 				}
 			}
