@@ -449,7 +449,7 @@
 	{
 		var fullname = page_elements_json[index].filename;
 		var filename_NoExt = fullname.substr(0, (fullname.length)-4);
-		echo filename_NoExt;
+		alert(filename_NoExt);
 		var video_html = '<a class="videoLink" videofile="' + filename_NoExt[0];
 		video_html = video_html + '" videowidth="480" videoheight="'+(Math.round((480/page_elements_json[index].width)*page_elements_json[index].height)+65)+'"';
 		video_html = video_html + ' videocaption="' + page_elements_json[index].description + '"></a>';
