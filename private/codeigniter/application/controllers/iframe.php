@@ -61,6 +61,7 @@ class Iframe extends CI_Controller {
 		$files = scandir($videosToPostDir);
 		$i = 0;
 		foreach ($files as $val){
+			var_dump($val);
 			if ($val.length <= 4) {exit;}
 			$filename = substr($val, 0, ($val.length-5));
 			echo $filename."<br>";
