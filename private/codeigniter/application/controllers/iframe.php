@@ -84,7 +84,7 @@ class Iframe extends CI_Controller {
 			}
 			$i++;
 			
-			if ($i>5) {exit;}
+			if ($i>20) {exit;}
 		}
 	  
 	}
