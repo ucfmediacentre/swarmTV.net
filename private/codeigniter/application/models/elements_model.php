@@ -738,21 +738,7 @@ class Elements_model extends CI_Model {
 	}
 	
 	public function addVideo($data)
-	{	
-		//create array to insert into updates table
-            /*$videodata = array(
-                'author' => $data['author'],
-                'description' => $data['description'],
-                'filename' =>  $data['filename'],
-                'group' => $data['group'],
-                'height' => $data['height'],
-                'page_id' => $data['page_id'],
-                'timeline' => $data['timeline'],
-                'type' => $data['type'],
-		'width' => $data['width'],
-		'x' => $data['x'],
-		'y' => $data['y']
-            );*/
+	{
             
             //insert new record into updates table
             return $this->db->insert('elements', $data);

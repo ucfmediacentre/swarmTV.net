@@ -63,11 +63,11 @@ class Iframe extends CI_Controller {
 		foreach ($files as $val){
 			if (strlen($val) > 4) {
 				$filename = substr($val, 0, strlen($val)-4);
-				echo $filename."<br>";
 				// search for filename in the element database
 				$elementRecord = $this->Elements_model->findVideo($filename.".mp4");
 				// if it is not found then add it
 				if ($elementRecord->num_rows() == 0) {
+					echo $filename."<br>";
 					$data['author'] = "Anonymous";
 					$data['description'] = $filename;
 					$data['filename'] = $filename.".mp4";
