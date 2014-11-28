@@ -432,8 +432,9 @@
 	{
         
 		$(elm).css("height","60px");
-		$(elm).css("width", "360px"); 
-		var filename_NoExt = substr(page_elements_json[index].filename, 0, strlen(page_elements_json[index].filename)-4);
+		$(elm).css("width", "360px");
+		var filename = page_elements_json[index].filename;
+		var filename_NoExt = filename.substr(0, filename.length-4);
 		var audio_html = '<audio controls preload="none" style="width:320px";>';
 		audio_html = audio_html + '<source src="' + base_url + 'assets/audio/' + filename_NoExt[0] + '.mp3" type="audio/mpeg">';
 		audio_html = audio_html + '<source src="' + base_url + 'assets/audio/' + filename_NoExt[0] + '.oga" type="audio/ogg">';
@@ -446,7 +447,8 @@
 	// ----------------------------------------------- VIDEO
 	function initVideo(elm, index)
 	{
-		var filename_NoExt = substr(page_elements_json[index].filename, 0, strlen(page_elements_json[index].filename)-4);
+		var filename = page_elements_json[index].filename;
+		var filename_NoExt = filename.substr(0, filename.length-4);
 		var video_html = '<a class="videoLink" videofile="' + filename_NoExt[0];
 		video_html = video_html + '" videowidth="480" videoheight="'+(Math.round((480/page_elements_json[index].width)*page_elements_json[index].height)+65)+'"';
 		video_html = video_html + ' videocaption="' + page_elements_json[index].description + '"></a>';
