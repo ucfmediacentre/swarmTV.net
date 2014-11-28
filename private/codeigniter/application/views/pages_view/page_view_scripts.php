@@ -436,8 +436,8 @@
 		var fullname = page_elements_json[index].filename;
 		var filename_NoExt = fullname.substr(0, (fullname.length)-4);
 		var audio_html = '<audio controls preload="none" style="width:320px";>';
-		audio_html = audio_html + '<source src="' + base_url + 'assets/audio/' + filename_NoExt[0] + '.mp3" type="audio/mpeg">';
-		audio_html = audio_html + '<source src="' + base_url + 'assets/audio/' + filename_NoExt[0] + '.oga" type="audio/ogg">';
+		audio_html = audio_html + '<source src="' + base_url + 'assets/audio/' + filename_NoExt + '.mp3" type="audio/mpeg">';
+		audio_html = audio_html + '<source src="' + base_url + 'assets/audio/' + filename_NoExt + '.oga" type="audio/ogg">';
 		audio_html = audio_html + '</audio><span>'+page_elements_json[index].description+'</span>';	
 		//audio_html = audio_html + '<p><strong>Download Audio: </strong><a href="' + base_url + 'assets/audio/' + filename_NoExt[0] + '.mp3">MP3</a></p>';
 		
@@ -449,8 +449,7 @@
 	{
 		var fullname = page_elements_json[index].filename;
 		var filename_NoExt = fullname.substr(0, (fullname.length)-4);
-		alert(filename_NoExt);
-		var video_html = '<a class="videoLink" videofile="' + filename_NoExt[0];
+		var video_html = '<a class="videoLink" videofile="' + filename_NoExt;
 		video_html = video_html + '" videowidth="480" videoheight="'+(Math.round((480/page_elements_json[index].width)*page_elements_json[index].height)+65)+'"';
 		video_html = video_html + ' videocaption="' + page_elements_json[index].description + '"></a>';
 		//video_html = video_html + '<p style="text-align:center;";><strong>Download Video: </strong><a href="' + base_url + 'assets/video/' + filename_NoExt[0] + '.mp4">MP4</a></p>';
