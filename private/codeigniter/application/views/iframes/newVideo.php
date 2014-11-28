@@ -7,6 +7,7 @@
 	
 	<form id="add_video_form" class="input_form" action="<?php echo base_url(); ?>index.php/elements/add" method="post" enctype="multipart/form-data">
 	  <h2>New Video</h2>
+	  <div>
 	  <div class="video_gallery_container">
 	    <a class="videoLink" videowidth="512" videoheight="288" videofile="video-5476d3414501f" videocaption="Christmas tree pull focus"></a>
 	    <a class="videoLink" videowidth="512" videoheight="288" videofile="video-5476d3414501f" videocaption="Christmas tree pull focus"></a>
@@ -18,11 +19,16 @@
 	    <a class="videoLink" videowidth="512" videoheight="288" videofile="video-5476d3414501f" videocaption="Christmas tree pull focus"></a>
 	    <!--<div class="clear_both"></div>//-->
 	  </div>
-	  <p>Maximum size: 100Mb<br />Formats: .mp4</p>
+	  <div>
+	    <br>
+	  <input name="searchInput" id="searchInput" /><input type="button" id="submit_search" value="Search" />
+	  </div>
+	  </div>
+	  <p>Maximum size: 100Mb<br />Format: .mp4</p>
 	  <input type="file" name="file" id="file" />
 	  <br /><br />
 	  <label>Name:</label>
-	  <input name="description" id="description" />
+	  <input name="description" id="description" size="35"/>
 	  <input type="submit" id="submit_video" value="Upload" class="submit_element submit_button"  />
 	  <input type="hidden" name="author" id="author" value="<?php echo $author; ?> "/>
 	  <input type="hidden" name="editable" id="editable" value="Y"/>

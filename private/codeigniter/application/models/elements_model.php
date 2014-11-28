@@ -68,13 +68,35 @@ class Elements_model extends CI_Model {
     }
     
     // gets all of the elements for a specific page
-    function getAllVideos($pageId)
+    function getAllPageVideos($pageId)
     {
     	$query = $this->db->where('pages_id', $pageId);
     	$query = $this->db->where('type', 'video');
 	$this->db->order_by("x", "asc");
 	
     	return $this->db->get('elements')->result();
+    }
+    
+    
+    // gets all of the elements for a specific page
+    function getAllVideos($searchText="", $group)
+    {
+	
+	$this->db->where('type', "video");
+	$this->db->where('group', $group);
+	$query = $this->db->get('elements');
+    	
+    	// loop through each element and update the description
+    	$elements = $query->result_array();
+    	return $elements;
+    }
+    
+    // populates group column for all of the elements in the website
+    function getAllElements()
+    {
+    	$query = $this->db->get('elements');
+	
+	return $query;
     }
     
     // gets a specific element by its id
@@ -528,6 +550,19 @@ class Elements_model extends CI_Model {
 		$data = array(
 			'author' => $this->session->userdata('username'),
 			'description' => $description
+		);
+
+		$this->db->where('id', $id);
+		$this->db->update('elements', $data); 
+		
+	}
+	
+	
+	// updates the database with the new description
+    function update_group($id, $group)
+	{
+		$data = array(
+			'group' => $group
 		);
 
 		$this->db->where('id', $id);

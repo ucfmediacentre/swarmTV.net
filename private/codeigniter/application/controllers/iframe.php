@@ -13,7 +13,10 @@ class Iframe extends CI_Controller {
 	  $this->load->model('Users_model');
 	  
 	  //if a new video is required, go and get a list of all the videos in that group on the server
-	  
+	  if ($toolName == "newVideo"){
+		$this->load->model('Elements_model');
+		var_dump($this->Elements_model->getAllVideos("", $group));
+	  }
 	  
 	  $data['toolName'] = $toolName;
 	  $data['pageTitle'] = $pageTitle;
@@ -26,6 +29,24 @@ class Iframe extends CI_Controller {
 	  $this->load->view('iframes/collectAssets', $data);
 	  $this->load->view('iframes/iframe_header', $data);
 	  $this->load->view('iframes/'.$toolName, $data);
+	}
+	
+	// Temporary function to populate database
+	public function populateDatabaseGroup()
+	{
+		$this->load->helper('url');
+		$this->load->model('Elements_model');
+		$this->load->model('Pages_model');
+		
+		$elementData = $this->Elements_model->getAllElements();
+		
+		foreach ($elementData->result() as $row)
+		{
+			$pageId = $row->pages_id;
+			$group = $this->Pages_model->get_group($pageId);
+			$this->Elements_model->update_group($row->id, $group);
+		}
+	  
 	}
 	
 	

@@ -43,7 +43,7 @@ class Clip extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
 		
-		$videoList = $this->Elements_model->getAllVideos($pageId); //$videoList is an array
+		$videoList = $this->Elements_model->getAllPageVideos($pageId); //$videoList is an array
 		
 		foreach ($videoList as $row)
 			{
