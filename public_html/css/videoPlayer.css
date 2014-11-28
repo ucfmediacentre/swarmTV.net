@@ -5,7 +5,7 @@ body { background-color: #222; margin: 20px; }
 .clear_both { clear: both; line-height: 1px; }
 
 .video_gallery_container {
-	width: 465px;
+	width: 420px;
 	height: 150px;
 	overflow: auto;
 	padding: 20px;
@@ -13,7 +13,7 @@ body { background-color: #222; margin: 20px; }
 	border-radius: 10px;
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
-	background: #e0e0f0;
+	background-color: #e0e0f0;
 }
 
 a.videoLink { 
@@ -22,10 +22,10 @@ a.videoLink {
 	padding: 0px;
 	width: 200px;
 	height: 115px;
-	float: left;
+	float: center;
 	position: relative;
 	cursor: pointer;
-	background: #555 no-repeat 0px 0px;
+	background-color: #555;
 	border: 1px solid #000;
 }
 
