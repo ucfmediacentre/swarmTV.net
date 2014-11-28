@@ -59,27 +59,28 @@ class Iframe extends CI_Controller {
 		$videosToPostDir= "/home/swarmtvn/public_html/assets/videoposters/";
 
 		$files = scandir($videosToPostDir);
-		$i = 0;
+		$i = 0; {}
 		foreach ($files as $val){
-			if (strlen($val) <= 4) {exit;}
-			$filename = substr($val, 0, strlen($val)-5);
-			echo $filename."<br>";
-			// search for filename in the element database
-			$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
-			// if it is not found then add it
-			if ($elementRecord->num_rows() == 0) {
-				$data['author'] = "Anonymous";
-				$data['description'] = $filename;
-				$data['filename'] = $filename.".mp4";
-				$data['group'] = "University of the Village";
-				$data['height'] = "288";
-				$data['pages_id'] = "1094";
-				$data['timeline'] = '{"in":0,"out":104.42,"duration":104.42}';
-				$data['type'] = "video";
-				$data['width'] = "512";
-				$data['x'] = 50 + (i*220);
-				$data['y'] = 100 + (i*135);
-				$this->Elements_model->addVideo($data);
+			if (strlen($val) > 4) {
+				$filename = substr($val, 0, strlen($val)-5);
+				echo $filename."<br>";
+				// search for filename in the element database
+				$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
+				// if it is not found then add it
+				if ($elementRecord->num_rows() == 0) {
+					$data['author'] = "Anonymous";
+					$data['description'] = $filename;
+					$data['filename'] = $filename.".mp4";
+					$data['group'] = "University of the Village";
+					$data['height'] = "288";
+					$data['pages_id'] = "1094";
+					$data['timeline'] = '{"in":0,"out":104.42,"duration":104.42}';
+					$data['type'] = "video";
+					$data['width'] = "512";
+					$data['x'] = 50 + (i*220);
+					$data['y'] = 100 + (i*135);
+					$this->Elements_model->addVideo($data);
+				}
 			}
 			$i++;
 			

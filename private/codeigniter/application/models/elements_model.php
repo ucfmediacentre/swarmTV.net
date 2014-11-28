@@ -740,7 +740,7 @@ class Elements_model extends CI_Model {
 	public function addVideo($data)
 	{	
 		//create array to insert into updates table
-            $videodata = array(
+            /*$videodata = array(
                 'author' => $data['author'],
                 'description' => $data['description'],
                 'filename' =>  $data['filename'],
@@ -752,10 +752,10 @@ class Elements_model extends CI_Model {
 		'width' => $data['width'],
 		'x' => $data['x'],
 		'y' => $data['y']
-            );
+            );*/
             
             //insert new record into updates table
-            $this->db->insert('elements', $videodata);
+            return $this->db->insert('elements', $data);
 	}
 	
 	// deletes the element with specific id in `elements` table, creates it in the `deleted elements` table, and creates a new update in `updates` table
