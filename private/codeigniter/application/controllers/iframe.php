@@ -50,11 +50,14 @@ class Iframe extends CI_Controller {
 	}
 	
 	
-	// Temporary function to populate database
-	public function populateFTPVideos()
+	// Temporary function to populate database with hardcoded info about UOTV
+	public function populateFTPVideos($pagename)
 	{
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
+		$this->load->model('Pages_model');
+		
+		$pageId = $this->Pages_model->get_page_id("University of the Village", $pagename);
 		
 		$videosToPostDir= "/home/swarmtvn/public_html/assets/videoposters/";
 
@@ -73,7 +76,7 @@ class Iframe extends CI_Controller {
 					$data['filename'] = $filename.".mp4";
 					$data['group'] = "University of the Village";
 					$data['height'] = "288";
-					$data['pages_id'] = "1094";
+					$data['pages_id'] = $pageId;
 					$data['timeline'] = '{"in":0,"out":104.42,"duration":104.42}';
 					$data['type'] = "video";
 					$data['width'] = "512";
