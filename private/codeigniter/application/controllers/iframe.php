@@ -59,9 +59,12 @@ class Iframe extends CI_Controller {
 		$videosToPostDir= "/home/swarmtvn/public_html/assets/videoposters/";
 
 		$files = scandir($videosToPostDir);
+		var_dump($files);
+		exit;
 		$i = 0;
 		foreach ($files as $val){
-			$filename = substr($val, 0, ($val.length-4));
+			$filename = substr($val, 0, ($val.length-5));
+			
 			// search for filename in the element database
 			$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
 			// if it is not found then add it
@@ -71,7 +74,7 @@ class Iframe extends CI_Controller {
 				$data['filename'] = $filename.".mp4";
 				$data['group'] = "University of the Village";
 				$data['height'] = "288";
-				$data['page_id'] = "1094";
+				$data['pages_id'] = "1094";
 				$data['timeline'] = '{"in":0,"out":104.42,"duration":104.42}';
 				$data['type'] = "video";
 				$data['width'] = "512";
