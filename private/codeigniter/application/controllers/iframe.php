@@ -62,7 +62,7 @@ class Iframe extends CI_Controller {
 		$i = 0; {}
 		foreach ($files as $val){
 			if (strlen($val) > 4) {
-				$filename = substr($val, 0, strlen($val)-5);
+				$filename = substr($val, 0, strlen($val)-4);
 				echo $filename."<br>";
 				// search for filename in the element database
 				$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
