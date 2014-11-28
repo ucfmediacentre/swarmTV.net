@@ -65,7 +65,7 @@ class Iframe extends CI_Controller {
 				$filename = substr($val, 0, strlen($val)-4);
 				echo $filename."<br>";
 				// search for filename in the element database
-				$elementRecord = $this->Elements_model->findVideo($filename.".jpg");
+				$elementRecord = $this->Elements_model->findVideo($filename.".mp4");
 				// if it is not found then add it
 				if ($elementRecord->num_rows() == 0) {
 					$data['author'] = "Anonymous";
