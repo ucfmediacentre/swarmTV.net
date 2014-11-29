@@ -15,7 +15,6 @@ class Iframe extends CI_Controller {
 	  //if a new video is required, go and get a list of all the videos in that group on the server
 	  if ($toolName == "newVideo"){
 		$this->load->model('Elements_model');
-		var_dump($this->Elements_model->getAllVideos("", $group));
 	  }
 	  
 	  $data['toolName'] = $toolName;
