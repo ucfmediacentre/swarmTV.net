@@ -54,7 +54,7 @@ class Iframe extends CI_Controller {
 	{
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
-		$this->load->model('Pages_model');
+		//$this->load->model('Pages_model');
 		//$pagename = urldecode($pagename);
 		
 		//$pageId = $this->Pages_model->get_page_id("University of the Village", $pagename);

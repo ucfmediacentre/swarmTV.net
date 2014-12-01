@@ -478,14 +478,16 @@
 				  var textContents = $('#' + elementId).text();
 				  window.parent.$("#textSizer").text(textContents);
 				  window.parent.$("#textSizer").css("fontSize", $('#' + elementId).css('font-size')+"px");
-				  if (window.parent.$("#textSizer").width()>500){
+				  /*if (window.parent.$("#textSizer").width()>500){
 				    window.parent.$("#textSizer").width(500);
 				  }
 				  var widthVal = window.parent.$("#textSizer").width()+20;
 				  var heightVal = window.parent.$("#textSizer").height()+20;
 				  // updates width and height
 				  changes.width = parseInt($("#textSizer").css('width'), 10);
-				  changes.height = parseInt($("#textSizer").css('height'), 10);
+				  changes.height = parseInt($("#textSizer").css('height'), 10);*/
+				  changes.width = parseInt($('#' + elementId).css('width'));
+				  changes.height = parseInt($('#' + elementId).css('height'));
 				} else {
 				  // updates image elements with width and height
 				  changes.width = parseInt($('#' + elementId).css('width'), 10);
