@@ -13,9 +13,9 @@ class Iframe extends CI_Controller {
 	  $this->load->model('Users_model');
 	  
 	  //if a new video is required, go and get a list of all the videos in that group on the server
-	  if ($toolName == "newVideo"){
+	  /*if ($toolName == "newVideo"){
 		$this->load->model('Elements_model');
-	  }
+	  }*/
 	  
 	  $data['toolName'] = $toolName;
 	  $data['pageTitle'] = $pageTitle;
@@ -50,13 +50,14 @@ class Iframe extends CI_Controller {
 	
 	
 	// Temporary function to populate database with hardcoded info about UOTV
-	public function populateFTPVideos($pagename)
+	public function populateFTPVideos($pageId)
 	{
 		$this->load->helper('url');
 		$this->load->model('Elements_model');
 		$this->load->model('Pages_model');
+		//$pagename = urldecode($pagename);
 		
-		$pageId = $this->Pages_model->get_page_id("University of the Village", $pagename);
+		//$pageId = $this->Pages_model->get_page_id("University of the Village", $pagename);
 		
 		$videosToPostDir= "/home/swarmtvn/public_html/assets/videoposters/";
 
