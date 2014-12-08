@@ -163,7 +163,7 @@ class Elements_model extends CI_Model {
 		$unique_name = $folder_from_mime_type . '-' . uniqid();
 		
 		$full_name = $unique_name . '.' . $extension;
-        $filename = substr($full_name, 0, -4);
+		$filename = substr($full_name, 0, -4);
 		
 		$this->data['filename'] = $full_name;
 		$this->data['type'] = $folder_from_mime_type;
