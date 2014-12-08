@@ -24,9 +24,9 @@ class Elements extends CI_Controller {
 			$this->Elements_model->move_file() or exit($this->Elements_model->file_errors);
 		}		
 		
-		$this->Elements_model->validate_element_data() or exit($this->Elements_model->data_errors);
-		
 		$elements_id = $this->Elements_model->add_element_to_database($this->Elements_model->data_errors) or exit();
+		
+		$this->Elements_model->validate_element_data() or exit($this->Elements_model->data_errors);
 		
 		// processes links for element
 		// *** PROCESS THE LINKS IN THE TEXT CONTENTS***
