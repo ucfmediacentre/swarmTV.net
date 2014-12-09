@@ -18,12 +18,10 @@ class Elements extends CI_Controller {
 		if(sizeof($_FILES) > 0){
        		
        		// checks if the file validates
-			var_dump($this->data);
 			$this->Elements_model->validate_file() or exit($this->Elements_model->file_errors);
 			
 			// moves the file depending on its mime type
 			$this->Elements_model->move_file() or exit($this->Elements_model->file_errors);
-			$this->data = $dataHold;
 		}		
 		
 		$this->Elements_model->validate_element_data() or exit($this->Elements_model->data_errors);
