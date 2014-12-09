@@ -527,7 +527,9 @@ class Elements_model extends CI_Model {
 	// inserts element into the database
     function add_element_to_database()
 	{
-	  
+		
+		$this->load->database();
+	
 		if (!$this->db->insert('elements', $this->data))
 		{
 			// should probably check to see if a page exist with this id as well?

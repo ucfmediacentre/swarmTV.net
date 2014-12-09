@@ -17,7 +17,7 @@ class Elements extends CI_Controller {
 		// checks if there is a file to process
 		if(sizeof($_FILES) > 0){
        		
-       		// checks if the file validates
+			// checks if the file validates
 			$this->Elements_model->validate_file() or exit($this->Elements_model->file_errors);
 			
 			// moves the file depending on its mime type
