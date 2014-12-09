@@ -21,7 +21,7 @@
                 height:100%;
                 padding:0px;
                 overflow:hidden;
-                background-color:#002;
+                background-color:#003;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;
                 -o-background-size: cover;
@@ -84,7 +84,7 @@
         
 			<div id="oldBrowser" style="display:none" width="600px">This website is a project designed to work with <strong>HTML5</strong>, so please download a modern browser if you can (its worth the wait!). If you haven't got IT permissions to do this, try Chrome portable (<a href="http://portableapps.com/apps/internet/google_chrome_portable">Chrome Portable</a>). You should be able to use that, OK. Otherwise, go straight to the home page here: <a href="<?php echo base_url(); ?>index.php/pages/view/<?php echo $group; ?>/home">Home</a>, and have a play around there. Thanks very much!<br /><br /><?php echo $listview; ?></div>
         <canvas class="" style="opacity: 1; display: inline;" id="the-swarm" width="1680" height="350"></canvas>
-        <img id="bg" src="<?php echo base_url(); ?>img/default_background.jpg" style="display:none;" />
+        <img id="bg" src="<?php echo base_url(); ?>img/spacer.gif" style="display:none;" />
         <script src="<?php echo base_url(); ?>libraries/arbor/lib/arbor.js"></script>
         <script src="<?php echo base_url(); ?>libraries/arbor/lib/arbor-tween.js"></script>
         <script src="<?php echo base_url(); ?>libraries/arbor/lib/arbor-graphics.js"></script>
